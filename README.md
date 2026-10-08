@@ -1,0 +1,1 @@
+Full educational website. Upload to GitHub repo and enable Pages from root.
