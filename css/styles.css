@@ -62,3 +62,108 @@ img {
 .correct {
     color: green
 }
+/* Educational Content Styling */
+
+.chapter {
+    max-width: 1000px;
+    margin: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.chapter h2 {
+    color: #243447;
+    margin-bottom: 15px;
+}
+
+.chapter h3 {
+    color: #42607A;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.chapter p,
+.chapter li {
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.chapter ul,
+.chapter ol {
+    margin-left: 20px;
+}
+
+/* Concept Box */
+
+.concept-box {
+    background: #eef6f7;
+    border-left: 5px solid #4A908C;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+/* Warning Box */
+
+.warning-box {
+    background: #fff4f4;
+    border-left: 5px solid #C95A49;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+/* Key Terms */
+
+.key-terms-box {
+    background: #f4fbfb;
+    border-left: 5px solid #4A908C;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+/* Chapter Summary */
+
+.chapter-summary {
+    background: #f5f7f9;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+/* Tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th,
+td {
+    border: 1px solid #d0d7de;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #eef6f7;
+}
+
+/* Quotes */
+
+blockquote {
+    border-left: 4px solid #42607A;
+    margin: 20px 0;
+    padding-left: 15px;
+    font-style: italic;
+    color: #555;
+}
+
+/* Learning Question */
+
+.learning-question {
+    font-size: 1.1rem;
+    color: #42607A;
+    font-weight: bold;
+}
