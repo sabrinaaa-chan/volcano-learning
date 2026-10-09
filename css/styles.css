@@ -339,17 +339,31 @@ blockquote {
 
     display:inline-block;
 
-    padding:10px 15px;
+    padding:12px 20px;
 
-    margin:5px;
+    margin:8px;
 
-    background:#42607A;
+    background:white;
 
-    color:white;
+    border:2px solid #42607A;
 
-    border-radius:6px;
+    border-radius:30px;
+
+    color:#42607A;
+
+    font-weight:bold;
 
     cursor:grab;
+
+    box-shadow:0 2px 5px rgba(0,0,0,0.08);
+
+    transition:0.2s;
+
+}
+
+.drag-label:hover{
+
+    transform:translateY(-2px);
 
 }
 ``
