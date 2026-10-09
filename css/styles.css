@@ -316,13 +316,17 @@ blockquote {
 
 /* Rounded draggable labels */
 
-.drag-label{
+.drag-label {
 
-    display:inline-block;
+    display:inline-flex;
 
-    padding:12px 20px;
+    align-items:center;
 
-    margin:8px;
+    justify-content:center;
+
+    min-width:120px;
+
+    padding:12px 18px;
 
     background:white;
 
@@ -332,13 +336,9 @@ blockquote {
 
     color:#42607A;
 
-    font-weight:bold;
+    font-weight:600;
 
-    cursor:grab;
-
-    user-select:none;
-
-    -webkit-user-drag: element;
+    cursor:pointer;
 
     box-shadow:0 2px 6px rgba(0,0,0,.1);
 }
@@ -350,6 +350,13 @@ blockquote {
 
 .label-bank {
 
-    text-align: center;
-    margin-top: 20px;
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:20px;
 }
