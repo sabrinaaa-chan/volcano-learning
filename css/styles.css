@@ -316,32 +316,21 @@ blockquote {
 
 /* Rounded draggable labels */
 
-.drag-label {
+.drag-label{
 
-    display: inline-flex;
+    display:inline-flex;
 
-    align-items: center;
-    justify-content: center;
+    padding:12px 20px;
 
-    padding: 12px 22px;
+    background:white;
 
-    margin: 8px;
+    border:2px solid #42607A;
 
-    background: white;
+    border-radius:999px;
 
-    border: 2px solid #42607A;
+    cursor:grab;
 
-    border-radius: 999px;
-
-    font-weight: 600;
-
-    color: #42607A;
-
-    cursor: grab;
-
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-
 .drag-label:hover {
 
     background: #eef6f7;
