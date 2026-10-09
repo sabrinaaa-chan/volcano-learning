@@ -49,6 +49,22 @@ img {
     border-radius: 8px;
 }
 
+.diagram-placeholder {
+height: 220px;
+background: #eef6f7;
+border: 2px dashed #4A908C;
+border-radius: 8px;
+ 
+display: flex;
+align-items: center;
+justify-content: center;
+ 
+font-weight: bold;
+color: #42607A;
+ 
+margin-bottom: 20px;
+}
+
 /* YouTube */
 
 iframe {
