@@ -318,9 +318,11 @@ blockquote {
 
 .drag-label{
 
-    display:inline-flex;
+    display:inline-block;
 
     padding:12px 20px;
+
+    margin:8px;
 
     background:white;
 
@@ -328,8 +330,17 @@ blockquote {
 
     border-radius:999px;
 
+    color:#42607A;
+
+    font-weight:bold;
+
     cursor:grab;
 
+    user-select:none;
+
+    -webkit-user-drag: element;
+
+    box-shadow:0 2px 6px rgba(0,0,0,.1);
 }
 .drag-label:hover {
 
