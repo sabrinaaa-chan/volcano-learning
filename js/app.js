@@ -4,125 +4,127 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const draggables =
-        document.querySelectorAll(".drag-item");
+    const dragLabels =
+        document.querySelectorAll(".drag-label");
 
-    const dropZones =
-        document.querySelectorAll(".drop-zone");
+    const dropSpots =
+        document.querySelectorAll(".drop-spot");
 
-    draggables.forEach(item => {
+    dragLabels.forEach(label => {
 
-        item.addEventListener("dragstart", e => {
+        label.addEventListener(
+            "dragstart",
+            e => {
 
-            e.dataTransfer.setData(
-                "text/plain",
-                item.id
-            );
+                e.dataTransfer.setData(
+                    "text/plain",
+                    label.id
+                );
 
-        });
+            }
+        );
 
     });
 
-    dropZones.forEach(zone => {
+    dropSpots.forEach(spot => {
 
-        zone.addEventListener("dragover", e => {
-            e.preventDefault();
-        });
+        spot.addEventListener(
+            "dragover",
+            e => {
 
-        zone.addEventListener("drop", e => {
-
-            e.preventDefault();
-
-            const draggedId =
-                e.dataTransfer.getData(
-                    "text/plain"
-                );
-
-            const correctAnswer =
-                zone.dataset.answer;
-
-            const feedback =
-                document.getElementById(
-                    "volcanoFeedback"
-                );
-
-            if (draggedId === correctAnswer) {
-
-                const draggedElement =
-                    document.getElementById(
-                        draggedId
-                    );
-
-                zone.innerHTML =
-                    "✅ " +
-                    draggedElement.innerText;
-
-                draggedElement.remove();
-
-                feedback.innerHTML =
-                    "Correct! Great job.";
-
-                checkVolcanoExplorer();
-
-            } else {
-
-                feedback.innerHTML =
-                    "❌ That component belongs somewhere else.";
+                e.preventDefault();
 
             }
+        );
 
-        });
+        spot.addEventListener(
+            "drop",
+            e => {
+
+                e.preventDefault();
+
+                const draggedId =
+                    e.dataTransfer.getData(
+                        "text/plain"
+                    );
+
+                const answer =
+                    spot.dataset.answer;
+
+                if(draggedId === answer){
+
+                    const item =
+                        document.getElementById(
+                            draggedId
+                        );
+
+                    spot.innerHTML =
+                        item.innerText;
+
+                    spot.style.background =
+                        "#dff0e0";
+
+                    item.remove();
+
+                    checkVolcanoExplorer();
+
+                } else {
+
+                    document
+                        .getElementById(
+                            "volcanoFeedback"
+                        )
+                        .innerHTML =
+                        "❌ Not quite. Try another location.";
+
+                }
+
+            }
+        );
 
     });
 
 });
 
-
-function checkVolcanoExplorer() {
+function checkVolcanoExplorer(){
 
     const remaining =
         document.querySelectorAll(
-            ".drag-item"
+            ".drag-label"
         );
 
-    if (remaining.length === 0) {
+    if(remaining.length === 0){
 
         document.getElementById(
             "volcanoFeedback"
         ).innerHTML = `
 
-            <div class="game-success">
+        <div class="chapter-summary">
 
-                <h4>
-                    🎉 Volcano Explorer Complete
-                </h4>
+            <h4>
+             🎉 Volcano Explorer Complete
+            </h4>
 
-                <p>
-                    You successfully identified:
+            <p>
+             Excellent work! You identified:
+            </p>
 
-                    <ul>
-                        <li>Magma Chamber</li>
-                        <li>Conduit</li>
-                        <li>Vent</li>
-                        <li>Crater</li>
-                    </ul>
+            <ul>
+                <li>Crater</li>
+                <li>Vent</li>
+                <li>Conduit</li>
+                <li>Magma Chamber</li>
+            </ul>
 
-                </p>
+            <p>
+             Scientists must understand volcano structure before interpreting monitoring signals.
+            </p>
 
-                <p>
-                    Scientists must understand
-                    volcano structure before they
-                    can interpret monitoring data.
-                </p>
+            <strong>
+                Score: 4 / 4
+            </strong>
 
-                <strong>
-                    Score: 4 / 4
-                </strong>
-
-            </div>
-
+        </div>
         `;
-
     }
-
 }
