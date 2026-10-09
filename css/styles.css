@@ -1,74 +1,64 @@
 body {
-    font-family: Arial;
-    margin: 0
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #fafafa;
+    color: #222;
 }
+
+/* Header */
 
 header {
     position: sticky;
     top: 0;
     background: #243447;
-    color: #fff;
-    padding: 10px
+    color: white;
+    padding: 15px;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    margin-top: 10px;
 }
 
 nav a {
     color: white;
-    margin: 5px
+    margin-right: 10px;
 }
+
+/* Layout */
 
 section {
-    padding: 20px
+    padding: 20px;
 }
-
-iframe {
-    width: 100%;
-    max-width: 800px;
-    height: 450px
-}
-
-.chapter {
-    border-bottom: 1px solid #ccc
-}
-
-img {
-    max-width: 100%;
-    cursor: pointer
-}
-
-#lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, .8)
-}
-
-#lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    display: block;
-    margin: auto;
-    margin-top: 3%
-}
-
-.game {
-    background: #eef;
-    padding: 10px
-}
-
-.btn {
-    padding: 8px
-}
-
-.correct {
-    color: green
-}
-/* Educational Content Styling */
 
 .chapter {
     max-width: 1000px;
     margin: auto;
     border-bottom: 1px solid #ccc;
 }
+
+/* Images */
+
+img {
+    max-width: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* YouTube */
+
+iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border: none;
+}
+
+/* Headings */
 
 .chapter h2 {
     color: #243447;
@@ -81,6 +71,8 @@ img {
     margin-bottom: 10px;
 }
 
+/* Text */
+
 .chapter p,
 .chapter li {
     line-height: 1.8;
@@ -90,6 +82,14 @@ img {
 .chapter ul,
 .chapter ol {
     margin-left: 20px;
+}
+
+/* Learning Question */
+
+.learning-question {
+    font-size: 1.1rem;
+    color: #42607A;
+    font-weight: bold;
 }
 
 /* Concept Box */
@@ -122,7 +122,7 @@ img {
     border-radius: 8px;
 }
 
-/* Chapter Summary */
+/* Summary */
 
 .chapter-summary {
     background: #f5f7f9;
@@ -131,7 +131,39 @@ img {
     border-radius: 8px;
 }
 
-/* Tables */
+/* Game Area */
+
+.game {
+    background: #eef3ff;
+    border-left: 5px solid #42607A;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 8px;
+}
+
+/* Buttons */
+
+button {
+    background: #42607A;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #324b60;
+}
+
+/* Progress */
+
+#progress {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Table */
 
 table {
     width: 100%;
@@ -160,10 +192,41 @@ blockquote {
     color: #555;
 }
 
-/* Learning Question */
+/* Lightbox */
 
-.learning-question {
-    font-size: 1.1rem;
-    color: #42607A;
-    font-weight: bold;
+#lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
 }
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    margin: auto;
+    margin-top: 3%;
+}
+
+.correct {
+    color: green;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    iframe {
+        height: 250px;
+    }
+
+    .chapter {
+        padding: 10px;
+    }
+}
+``
