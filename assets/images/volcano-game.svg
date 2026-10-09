@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1200 800">
+
+  <defs>
+
+    <linearGradient id="sky"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1">
+      <stop offset="0%" stop-color="#dfeef5"/>
+      <stop offset="100%" stop-color="#f8fbfc"/>
+    </linearGradient>
+
+    <linearGradient id="volcano"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1">
+      <stop offset="0%" stop-color="#8d7a6b"/>
+      <stop offset="100%" stop-color="#5d5047"/>
+    </linearGradient>
+
+    <radialGradient id="magma">
+      <stop offset="0%" stop-color="#ffd180"/>
+      <stop offset="55%" stop-color="#ff8a50"/>
+      <stop offset="100%" stop-color="#bf360c"/>
+    </radialGradient>
+
+  </defs>
+
+  <!-- Sky -->
+
+  <rect width="1200"
+        height="800"
+        fill="url(#sky)"/>
+
+  <!-- Ash plume -->
+
+  <path d="
+  M520 120
+  Q560 50 650 80
+  Q720 40 780 95
+  Q830 120 810 180
+  Q760 220 660 220
+  Q560 220 510 180
+  Q490 150 520 120 Z"
+
+  fill="#d6dbe0"
+  opacity="0.9"/>
+
+  <!-- Ground -->
+
+  <rect x="0"
+        y="650"
+        width="1200"
+        height="150"
+        fill="#d9d2c7"/>
+
+  <!-- Volcano body -->
+
+  <path d="
+  M170 650
+
+  Q250 570 310 510
+
+  Q380 420 470 320
+
+  Q550 230 610 190
+
+  Q655 180 700 215
+
+  Q770 260 860 370
+
+  Q950 480 1080 650
+
+  Z"
+
+  fill="url(#volcano)"
+  stroke="#53463b"
+  stroke-width="5"/>
+
+  <!-- Geological layers -->
+
+  <path d="
+  M240 575
+
+  Q380 540 560 550
+
+  Q760 565 930 535"
+
+  fill="none"
+  stroke="#6f6259"
+  stroke-width="3"/>
+
+
+  <path d="
+  M220 470
+
+  Q420 430 600 445
+
+  Q820 460 980 430"
+
+  fill="none"
+  stroke="#6f6259"
+  stroke-width="3"/>
+
+
+  <path d="
+  M300 360
+
+  Q500 325 660 345
+
+  Q850 360 970 330"
+
+  fill="none"
+  stroke="#6f6259"
+  stroke-width="3"/>
+
+  <!-- Crater -->
+
+  <ellipse cx="640"
+           cy="198"
+           rx="85"
+           ry="28"
+           fill="#2f2f2f"/>
+
+  <ellipse cx="640"
+           cy="194"
+           rx="65"
+           ry="18"
+           fill="#555"/>
+
+  <!-- Main conduit -->
+
+  <path d="
+  M615 245
+
+  Q630 300 628 370
+
+  Q626 450 620 520"
+
+  stroke="#5d4037"
+  stroke-width="42"
+  fill="none"/>
+
+  <!-- Magma in conduit -->
+
+  <path d="
+  M620 245
+
+  Q632 300 630 370
+
+  Q628 450 624 520"
+
+  stroke="#ff8a50"
+  stroke-width="18"
+  fill="none"/>
+
+  <!-- Side dike -->
+
+  <path d="
+  M635 390
+
+  Q710 360 805 305"
+
+  stroke="#e65c1a"
+  stroke-width="28"
+  fill="none"/>
+
+  <!-- Magma chamber -->
+
+  <path d="
+  M470 560
+
+  Q500 470 620 455
+
+  Q760 440 840 530
+
+  Q870 610 760 655
+
+  Q610 690 490 640
+
+  Q430 615 470 560
+  Z"
+
+  fill="url(#magma)"
+  stroke="#8e2800"
+  stroke-width="4"/>
+
+  <!-- Magma glow -->
+
+  <ellipse cx="655"
+           cy="560"
+           rx="120"
+           ry="70"
+           fill="#ffcc80"
+           opacity="0.45"/>
+
+  <!-- Groundwater -->
+
+  <path d="
+  M120 625
+
+  Q380 600 650 610
+
+  Q930 620 1120 625"
+
+  fill="none"
+  stroke="#7ca3c7"
+  stroke-width="4"
+  opacity="0.7"/>
+
+  <!-- Drop Zone: Crater -->
+
+  <rect x="510"
+        y="120"
+        width="250"
+        height="60"
+
+        fill="rgba(255,255,255,0.9)"
+        stroke="#42607A"
+        stroke-width="3"
+        stroke-dasharray="8,8"
+        rx="20"/>
+
+  <!-- Drop Zone: Vent -->
+
+  <rect x="835"
+        y="285"
+        width="220"
+        height="60"
+
+        fill="rgba(255,255,255,0.9)"
+        stroke="#42607A"
+        stroke-width="3"
+        stroke-dasharray="8,8"
+        rx="20"/>
+
+  <!-- Drop Zone: Conduit -->
+
+  <rect x="820"
+        y="430"
+        width="220"
+        height="60"
+
+        fill="rgba(255,255,255,0.9)"
+        stroke="#42607A"
+        stroke-width="3"
+        stroke-dasharray="8,8"
+        rx="20"/>
+
+  <!-- Drop Zone: Magma Chamber -->
+
+  <rect x="440"
+        y="500"
+        width="330"
+        height="70"
+
+        fill="rgba(255,255,255,0.9)"
+        stroke="#42607A"
+        stroke-width="3"
+        stroke-dasharray="8,8"
+        rx="20"/>
+
+</svg>
