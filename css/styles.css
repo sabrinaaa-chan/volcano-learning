@@ -260,5 +260,28 @@ blockquote {
     .chapter {
         padding: 10px;
     }
+/* volcano-game */
+    #volcano-game{
+    display:grid;
+    gap:12px;
+    margin:20px 0;
+}
+
+.drop-zone{
+    border:2px dashed #42607A;
+    padding:20px;
+    min-height:60px;
+    background:white;
+    border-radius:8px;
+}
+
+.drag-item{
+    display:inline-block;
+    background:#42607A;
+    color:white;
+    padding:10px 15px;
+    margin:5px;
+    border-radius:6px;
+    cursor:grab;
 }
 ``
