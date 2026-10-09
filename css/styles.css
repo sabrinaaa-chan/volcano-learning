@@ -261,27 +261,95 @@ blockquote {
         padding: 10px;
     }
 /* volcano-game */
-    #volcano-game{
-    display:grid;
-    gap:12px;
-    margin:20px 0;
+    #volcanoContainer{
+
+    position:relative;
+
+    width:700px;
+
+    max-width:100%;
+
+    margin:auto;
+
 }
 
-.drop-zone{
+.volcano-game-image{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.drop-spot{
+
+    position:absolute;
+
+    width:120px;
+
+    height:40px;
+
     border:2px dashed #42607A;
-    padding:20px;
-    min-height:60px;
+
     background:white;
-    border-radius:8px;
+
+    border-radius:6px;
+
 }
 
-.drag-item{
+/* positions */
+
+.crater{
+
+    top:90px;
+    left:290px;
+
+}
+
+.vent{
+
+    top:180px;
+    left:310px;
+
+}
+
+.conduit{
+
+    top:300px;
+    left:290px;
+
+}
+
+.magma{
+
+    bottom:80px;
+    left:260px;
+
+}
+
+.label-bank{
+
+    margin-top:20px;
+
+    text-align:center;
+
+}
+
+.drag-label{
+
     display:inline-block;
-    background:#42607A;
-    color:white;
+
     padding:10px 15px;
+
     margin:5px;
+
+    background:#42607A;
+
+    color:white;
+
     border-radius:6px;
+
     cursor:grab;
+
 }
 ``
