@@ -1,1 +1,64 @@
-body{font-family:Arial;margin:0}header{position:sticky;top:0;background:#243447;color:#fff;padding:10px}nav a{color:white;margin:5px}section{padding:20px}iframe{width:100%;max-width:800px;height:450px}.chapter{border-bottom:1px solid #ccc}img{max-width:100%;cursor:pointer}#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8)}#lightbox img{max-width:90%;max-height:90%;display:block;margin:auto;margin-top:3%}.game{background:#eef;padding:10px}.btn{padding:8px}.correct{color:green}
+body {
+    font-family: Arial;
+    margin: 0
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: #243447;
+    color: #fff;
+    padding: 10px
+}
+
+nav a {
+    color: white;
+    margin: 5px
+}
+
+section {
+    padding: 20px
+}
+
+iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px
+}
+
+.chapter {
+    border-bottom: 1px solid #ccc
+}
+
+img {
+    max-width: 100%;
+    cursor: pointer
+}
+
+#lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .8)
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    margin: auto;
+    margin-top: 3%
+}
+
+.game {
+    background: #eef;
+    padding: 10px
+}
+
+.btn {
+    padding: 8px
+}
+
+.correct {
+    color: green
+}
