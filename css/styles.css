@@ -71,12 +71,21 @@ iframe {
     margin-bottom: 10px;
 }
 
+.chapter img{
+    height: 280px;
+}
+
 /* Text */
 
 .chapter p,
 .chapter li {
-    line-height: 1.6;
+    line-height: 1.55;
     font-size: 1rem;
+}
+
+.chapter p {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .chapter ul,
