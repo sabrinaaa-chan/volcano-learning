@@ -71,8 +71,13 @@ iframe {
     margin-bottom: 10px;
 }
 
-.chapter img{
-    height: 280px;
+.chapter img {
+    width: 100%;
+    max-width: 900px;
+    height: 350px;
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
 }
 
 /* Text */
@@ -84,7 +89,7 @@ iframe {
 }
 
 .chapter p {
-    margin-top: 8px;
+    margin-top: 6px;
     margin-bottom: 8px;
 }
 
@@ -96,9 +101,11 @@ iframe {
 /* Learning Question */
 
 .learning-question {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #42607A;
-    font-weight: bold;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 /* Concept Box */
