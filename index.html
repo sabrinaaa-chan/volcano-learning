@@ -206,26 +206,59 @@
 <h3>Game: Volcano Explorer</h3>
 
 <p>
-Drag each label onto the correct volcano component.
+Drag each label to the correct location on the volcano.
 </p>
 
-<div id="volcano-game">
+<div id="volcanoContainer">
 
-    <div class="drop-zone" data-answer="crater">
-        Crater Area
+    <img
+        src="assets/images/volcano-game.svg"
+        alt="Volcano anatomy game"
+        class="volcano-game-image">
+
+    <div class="drop-spot crater"
+         nt">
     </div>
 
-    <div class="drop-zone" data-answer="vent">
-        Vent Area
+    <div class="drop-spot conduit"
+         data-answer="conduit">
     </div>
 
-    <div class="drop-zone" data-answer="conduit">
-        Conduit Area
+    <div class="drop-spot magma"
+         data-answer="magma">
     </div>
 
-    <div class="drop-zone" data-answer="magma">
-        Magma Chamber Area
+</div>
+
+<div class="label-bank">
+
+    <div draggable="true"
+         id="crater"
+         class="drag-label">
+        Crater
     </div>
+
+    <div draggable="true"
+         id="vent"
+         class="drag-label">
+        Vent
+    </div>
+
+    <div draggable="true"
+         id="conduit"
+         class="drag-label">
+        Conduit
+    </div>
+
+    <div draggable="true"
+         id="magma"
+         class="drag-label">
+        Magma Chamber
+    </div>
+
+</div>
+
+<div id="volcanoFeedback"></div>
 
 </div>
 
