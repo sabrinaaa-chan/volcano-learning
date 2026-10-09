@@ -1,1 +1,128 @@
-document.querySelectorAll(".lightbox-img").forEach(i=>i.onclick=()=>{lightbox.style.display='block';lbimg.src=i.src});function closeLb(){lightbox.style.display='none'} window.closeLb=closeLb; function playGame(n){let e=document.getElementById('g'+n); if(n==1)e.innerHTML='Find components score: 100'; if(n==2)e.innerHTML='Budget managed. Score: 85'; if(n==3)e.innerHTML='Pressure stabilized. Score: 90'; if(n==4)e.innerHTML='Scenario identified. Score: 95'; if(n==5)e.innerHTML='Forecast completed. Score: 88'; localStorage.setItem('chapter'+n,'done'); update();} window.playGame=playGame; function update(){let c=0; for(let i=1;i<=5;i++) if(localStorage.getItem('chapter'+i)) c++; document.getElementById('progress').textContent='Progress '+c+'/5';} update(); const qs=[['Which observation guarantees eruption?',['None','Earthquakes','Heat'],0],['Ground inflation may indicate?',['Magma movement','Nothing','Rain'],0],['Why monitor earthquakes?',['Underground changes','Weather','Tourism'],0],['Positive feedback?',['Amplifies change','Stops change','Random'],0],['Forecasts provide?',['Probabilities','Dates','Certainty'],0]]; let h=''; qs.forEach((q,i)=>{h+=`<p>${q[0]}</p>`; q[1].forEach((a,j)=>h+=`<label><input type=radio name=q${i} value=${j}>${a}</label><br>`)}); h+='<button onclick="grade()">Submit</button><div id=r></div>'; quizApp.innerHTML=h; window.grade=function(){let s=0; qs.forEach((q,i)=>{let v=document.querySelector(`input[name=q${i}]:checked`); if(v&&+v.value===q[2])s++;}); r.innerHTML='Score '+s+'/5. Great job!'; if(s==5) r.innerHTML+='<p>Certificate earned: Volcano Forecasting Explorer</p>'; }
+/* =====================================
+   CHAPTER 1 - VOLCANO EXPLORER
+===================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const draggables =
+        document.querySelectorAll(".drag-item");
+
+    const dropZones =
+        document.querySelectorAll(".drop-zone");
+
+    draggables.forEach(item => {
+
+        item.addEventListener("dragstart", e => {
+
+            e.dataTransfer.setData(
+                "text/plain",
+                item.id
+            );
+
+        });
+
+    });
+
+    dropZones.forEach(zone => {
+
+        zone.addEventListener("dragover", e => {
+            e.preventDefault();
+        });
+
+        zone.addEventListener("drop", e => {
+
+            e.preventDefault();
+
+            const draggedId =
+                e.dataTransfer.getData(
+                    "text/plain"
+                );
+
+            const correctAnswer =
+                zone.dataset.answer;
+
+            const feedback =
+                document.getElementById(
+                    "volcanoFeedback"
+                );
+
+            if (draggedId === correctAnswer) {
+
+                const draggedElement =
+                    document.getElementById(
+                        draggedId
+                    );
+
+                zone.innerHTML =
+                    "✅ " +
+                    draggedElement.innerText;
+
+                draggedElement.remove();
+
+                feedback.innerHTML =
+                    "Correct! Great job.";
+
+                checkVolcanoExplorer();
+
+            } else {
+
+                feedback.innerHTML =
+                    "❌ That component belongs somewhere else.";
+
+            }
+
+        });
+
+    });
+
+});
+
+
+function checkVolcanoExplorer() {
+
+    const remaining =
+        document.querySelectorAll(
+            ".drag-item"
+        );
+
+    if (remaining.length === 0) {
+
+        document.getElementById(
+            "volcanoFeedback"
+        ).innerHTML = `
+
+            <div class="game-success">
+
+                <h4>
+                    🎉 Volcano Explorer Complete
+                </h4>
+
+                <p>
+                    You successfully identified:
+
+                    <ul>
+                        <li>Magma Chamber</li>
+                        <li>Conduit</li>
+                        <li>Vent</li>
+                        <li>Crater</li>
+                    </ul>
+
+                </p>
+
+                <p>
+                    Scientists must understand
+                    volcano structure before they
+                    can interpret monitoring data.
+                </p>
+
+                <strong>
+                    Score: 4 / 4
+                </strong>
+
+            </div>
+
+        `;
+
+    }
+
+}
