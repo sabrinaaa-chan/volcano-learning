@@ -261,109 +261,96 @@ blockquote {
         padding: 10px;
     }
 /* volcano-game */
-    #volcanoContainer{
+    #volcanoContainer {
 
-    position:relative;
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
 
-    width:700px;
+.volcano-game-image {
 
-    max-width:100%;
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
 
-    margin:auto;
+/* Drop zones */
+
+.drop-spot {
+
+    position: absolute;
+
+    width: 180px;
+    height: 50px;
+
+    border: 3px dashed #42607A;
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.85);
 
 }
 
-.volcano-game-image{
+/* Adjust after viewing site */
 
-    width:100%;
-
-    display:block;
-
+.crater {
+    top: 90px;
+    left: 430px;
 }
 
-.drop-spot{
-
-    position:absolute;
-
-    width:120px;
-
-    height:40px;
-
-    border:2px dashed #42607A;
-
-    background:white;
-
-    border-radius:6px;
-
+.vent {
+    top: 240px;
+    left: 690px;
 }
 
-/* positions */
-
-.crater{
-
-    top:90px;
-    left:290px;
-
+.conduit {
+    top: 360px;
+    left: 690px;
 }
 
-.vent{
-
-    top:180px;
-    left:310px;
-
+.magma {
+    top: 520px;
+    left: 360px;
 }
 
-.conduit{
+/* Rounded draggable labels */
 
-    top:300px;
-    left:290px;
+.drag-label {
 
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 22px;
+
+    margin: 8px;
+
+    background: white;
+
+    border: 2px solid #42607A;
+
+    border-radius: 999px;
+
+    font-weight: 600;
+
+    color: #42607A;
+
+    cursor: grab;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.magma{
+.drag-label:hover {
 
-    bottom:80px;
-    left:260px;
-
+    background: #eef6f7;
+    transform: translateY(-1px);
 }
 
-.label-bank{
+.label-bank {
 
-    margin-top:20px;
-
-    text-align:center;
-
-}
-
-.drag-label{
-
-    display:inline-block;
-
-    padding:12px 20px;
-
-    margin:8px;
-
-    background:white;
-
-    border:2px solid #42607A;
-
-    border-radius:30px;
-
-    color:#42607A;
-
-    font-weight:bold;
-
-    cursor:grab;
-
-    box-shadow:0 2px 5px rgba(0,0,0,0.08);
-
-    transition:0.2s;
-
-}
-
-.drag-label:hover{
-
-    transform:translateY(-2px);
-
+    text-align: center;
+    margin-top: 20px;
 }
 ``
