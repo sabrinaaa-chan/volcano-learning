@@ -203,17 +203,55 @@
 
     <div class="game">
 
-        <h3>Game: Volcano Explorer</h3>
+<h3>Game: Volcano Explorer</h3>
 
-        <p>
-            Identify the main components of a volcano and learn how they connect together.
-        </p>
+<p>
+Drag each label onto the correct volcano component.
+</p>
 
-        <button onclick="playGame(1)">Play</button>
+<div id="volcano-game">
 
-        <div id="g1"></div>
-
+    <div class="drop-zone" data-answer="crater">
+        Crater Area
     </div>
+
+    <div class="drop-zone" data-answer="vent">
+        Vent Area
+    </div>
+
+    <div class="drop-zone" data-answer="conduit">
+        Conduit Area
+    </div>
+
+    <div class="drop-zone" data-answer="magma">
+        Magma Chamber Area
+    </div>
+
+</div>
+
+<div id="labels">
+
+    <div class="drag-item" draggable="true" id="crater">
+        Crater
+    </div>
+
+    <div class="drag-item" draggable="true" id="vent">
+        Vent
+    </div>
+
+    <div class="drag-item" draggable="true" id="conduit">
+        Conduit
+    </div>
+
+    <div class="drag-item" draggable="true" id="magma">
+        Magma Chamber
+    </div>
+
+</div>
+
+<div id="volcanoFeedback"></div>
+
+</div>
 
 </section>
 <section id="ch2" class="chapter">
