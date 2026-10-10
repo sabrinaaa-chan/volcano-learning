@@ -270,77 +270,43 @@ blockquote {
     }
     
 /* volcano-game */
-.volcano-game{
+.match-game{
+    text-align:center;
     margin:40px auto;
 }
 
-.labels-panel{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
+.match-question{
+    display:grid;
+    grid-template-columns:200px 150px;
+    gap:15px;
     justify-content:center;
-    margin-bottom:20px;
+    margin:25px 0;
 }
 
-.draggable{
-    background:#275273;
-    color:white;
-    padding:10px 16px;
-    border-radius:8px;
-    cursor:grab;
+.match-question label{
+    font-weight:bold;
+    text-align:right;
+}
+
+.match-question select{
+    padding:8px;
+}
+
+#matchResult{
+    margin-top:20px;
+    font-size:1.2rem;
     font-weight:bold;
 }
-
-.volcano-board{
-    position:relative;
-    max-width:1200px;
-    margin:auto;
+.component-review{
+    margin-top:20px;
+    padding:20px;
+    background:#eef5fa;
+    border-left:5px solid #2c5b86;
+    text-align:left;
+    border-radius:8px;
 }
 
-.game-image{
-    width:100%;
-    display:block;
-    border-radius:10px;
-}
-
-.dropzone{
-    position:absolute;
-    border:3px dashed red;
-    background:rgba(255,0,0,0.15);
-}
-
-/* crater */
-.crater-zone{
-    top:12%;
-    left:46%;
-    width:90px;
-    height:60px;
-}
-
-/* vent */
-.vent-zone{
-    top:24%;
-    left:47%;
-    width:70px;
-    height:70px;
-}
-
-/* conduit */
-.conduit-zone{
-    top:33%;
-    left:48%;
-    width:90px;
-    height:300px;
-}
-
-/* magma */
-.magma-zone{
-    top:73%;
-    left:41%;
-    width:250px;
-    height:130px;
-}
-
-.correct{
-    background:#28a745 !important;
+.component-review p{
+    margin-bottom:16px;
+    line-height:1.6;
 }
