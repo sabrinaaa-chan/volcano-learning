@@ -268,103 +268,79 @@ blockquote {
     .chapter {
         padding: 10px;
     }
+    
 /* volcano-game */
-    #volcanoContainer {
+.hotspot-game {
+    margin: 40px auto;
+    text-align: center;
+}
 
+#volcanoGame {
     position: relative;
-    max-width: 900px;
+    width: 100%;
+    max-width: 1200px;
     margin: auto;
 }
 
-.volcano-game-image {
-
+#volcanoImage {
     width: 100%;
     display: block;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
-/* Drop zones */
-
-.drop-spot {
-
+.hotspot {
     position: absolute;
-
-    width: 180px;
-    height: 50px;
-
-    border: 3px dashed #42607A;
-
-    border-radius: 16px;
-
-    background: rgba(255,255,255,0.85);
-
+    border: 3px solid rgba(255,255,255,0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Adjust after viewing site */
-
-.crater {
-    top: 90px;
-    left: 430px;
+.hotspot:hover {
+    background: rgba(255,215,0,0.3);
+    transform: scale(1.1);
 }
 
-.vent {
-    top: 240px;
-    left: 690px;
+/* Crater */
+.crater{
+    top:12%;
+    left:48%;
+    width:70px;
+    height:70px;
 }
 
-.conduit {
-    top: 360px;
-    left: 690px;
+/* Vent */
+.vent{
+    top:30%;
+    left:48%;
+    width:60px;
+    height:60px;
 }
 
-.magma {
-    top: 520px;
-    left: 360px;
+/* Conduit */
+.conduit{
+    top:45%;
+    left:48%;
+    width:60px;
+    height:180px;
 }
 
-/* Rounded draggable labels */
-
-.drag-label {
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    min-width:120px;
-
-    padding:12px 18px;
-
-    background:white;
-
-    border:2px solid #42607A;
-
-    border-radius:999px;
-
-    color:#42607A;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    box-shadow:0 2px 6px rgba(0,0,0,.1);
-}
-.drag-label:hover {
-
-    background: #eef6f7;
-    transform: translateY(-1px);
+/* Magma Chamber */
+.magma{
+    bottom:8%;
+    left:42%;
+    width:220px;
+    height:140px;
 }
 
-.label-bank {
+.game-status{
+    font-size:1.2rem;
+    font-weight:bold;
+    margin-bottom:20px;
+}
 
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
+#gameResult{
     margin-top:20px;
+    font-weight:bold;
+    font-size:1.2rem;
 }
