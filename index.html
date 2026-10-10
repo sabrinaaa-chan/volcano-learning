@@ -199,85 +199,61 @@
             how scientists forecast eruptions.
         </blockquote>
 
-    </div>
-
     <div class="game">
 
-    <h3>Game: Volcano Explorer</h3>
+    <h3>Game: Volcano Label Challenge</h3>
 
     <p>
-        Drag each label onto the correct part of the volcano.
+        Select a volcano component, then click the correct location on the diagram.
     </p>
+
+    <div id="selectedLabel">
+        Selected Label:
+        <strong>None</strong>
+    </div>
 
     <div id="volcanoContainer">
 
-        <img
-    src="assets/images/volcano-game.svg"
-    alt="Volcano anatomy drag and drop game"
-    class="volcano-game-image">
+        assets/images/volcano-game.png
+
+        <div class="hotspot crater"
+             onclick="checkVolcanoLocation('crater')"></div>
+
+        <div class="hotspot vent"
+             onclick="checkVolcanoLocation('vent')"></div>
+
+        <div class="hotspot conduit"
+             onclick="checkVolcanoLocation('conduit')"></div>
+
+        <div class="hotspot magma"
+             onclick="checkVolcanoLocation('magma')"></div>
 
     </div>
 
     <div class="label-bank">
 
-    <div class="drag-label"
-         draggable="true"
-         id="crater">
-        Crater
-    </div>
+        <button onclick="selectLabel('crater')">
+            Crater
+        </button>
 
-    <div class="drag-label"
-         draggable="true"
-         id="vent">
-        Vent
-    </div>
+        <button onclick="selectLabel('vent')">
+            Vent
+        </button>
 
-    <div class="drag-label"
-         draggable="true"
-         id="conduit">
-        Conduit
-    </div>
+        <button onclick="selectLabel('conduit')">
+            Conduit
+        </button>
 
-    <div class="drag-label"
-         draggable="true"
-         id="magma">
-        Magma Chamber
-    </div>
+        <button onclick="selectLabel('magma')">
+            Magma Chamber
+        </button>
 
-</div>
+    </div>
 
     <div id="volcanoFeedback"></div>
 
 </div>
-
-<div id="volcanoFeedback"></div>
-
-</div>
-
-<div id="labels">
-
-    <div class="drag-item" draggable="true" id="crater">
-        Crater
-    </div>
-
-    <div class="drag-item" draggable="true" id="vent">
-        Vent
-    </div>
-
-    <div class="drag-item" draggable="true" id="conduit">
-        Conduit
-    </div>
-
-    <div class="drag-item" draggable="true" id="magma">
-        Magma Chamber
-    </div>
-
-</div>
-
-<div id="volcanoFeedback"></div>
-
-</div>
-
+        
 </section>
 <section id="ch2" class="chapter">
 
