@@ -199,34 +199,62 @@
             how scientists forecast eruptions.
         </blockquote>
 
-    <div class="volcano-game">
+    <div class="match-game">
 
-    <h3>Volcano Explorer Game</h3>
+    <h3>Chapter 1 Challenge: Match the Labels</h3>
 
-    <p>Drag each label onto the correct volcano feature.</p>
+    <p>
+        Study the volcano diagram and match each feature to the correct letter.
+    </p>
 
-    <div class="labels-panel">
-        <div class="draggable" draggable="true" data-feature="crater">Crater</div>
-        <div class="draggable" draggable="true" data-feature="vent">Vent</div>
-        <div class="draggable" draggable="true" data-feature="conduit">Conduit</div>
-        <div class="draggable" draggable="true" data-feature="magma">Magma Chamber</div>
+    <img class="lightbox-img"
+     src="assets/images/Ch1game.png">
+
+    <div class="match-question">
+
+        <label>Crater:</label>
+        <select id="crater">
+            <option value="">Choose...</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+        </select>
+
+        <label>Vent:</label>
+        <select id="vent">
+            <option value="">Choose...</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+        </select>
+
+        <label>Conduit:</label>
+        <select id="conduit">
+            <option value="">Choose...</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+        </select>
+
+        <label>Magma Chamber:</label>
+        <select id="magma">
+            <option value="">Choose...</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+        </select>
+
     </div>
 
-    <div class="volcano-board">
+    <button onclick="checkMatchGame()">
+        Check Answers
+    </button>
 
-        assets/images/Ch1game.png
-
-        <div class="dropzone crater-zone" data-feature="crater"></div>
-
-        <div class="dropzone vent-zone" data-feature="vent"></div>
-
-        <div class="dropzone conduit-zone" data-feature="conduit"></div>
-
-        <div class="dropzone magma-zone" data-feature="magma"></div>
-
-    </div>
-
-    <div id="gameResult"></div>
+    <div id="matchResult"></div>
 
 </div>
         
