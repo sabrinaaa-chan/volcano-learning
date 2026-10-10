@@ -350,6 +350,22 @@ blockquote {
     box-shadow:0 0 8px rgba(44,91,134,0.3);
 }
     
+.match-game button{
+    background:#2c5b86;
+    color:white;
+    border:none;
+    padding:12px 28px;
+    border-radius:10px;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.match-game button:hover{
+    background:#1e4566;
+    transform:translateY(-2px);
+}
 .component-review{
     margin-top:20px;
     padding:20px;
