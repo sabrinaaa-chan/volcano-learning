@@ -276,8 +276,8 @@ blockquote {
 }
     
 .match-image{
-    width: 70%;
-    max-width: 900px;
+    width: 65%;
+    max-width: 850px;
     height: auto;
     display: block;
     margin: 20px auto;
@@ -305,6 +305,51 @@ blockquote {
     font-size:1.2rem;
     font-weight:bold;
 }
+    .match-question{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin:25px 0;
+}
+
+.match-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    background:#f7f9fc;
+    border:2px solid #d7e3f1;
+    border-radius:12px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+.match-item label{
+    font-weight:700;
+    color:#23415a;
+    font-size:1.1rem;
+}
+
+.match-item select{
+    padding:8px 12px;
+    border:2px solid #7aa6c2;
+    border-radius:8px;
+    background:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.match-item select:hover{
+    border-color:#2c5b86;
+}
+
+.match-item select:focus{
+    outline:none;
+    border-color:#2c5b86;
+    box-shadow:0 0 8px rgba(44,91,134,0.3);
+}
+    
 .component-review{
     margin-top:20px;
     padding:20px;
