@@ -36,7 +36,8 @@ section {
 }
 
 .chapter {
-    max-width: 1000px;
+    max-width: 1600px;
+    width: 98%;
     margin: auto;
     border-bottom: 1px solid #ccc;
 }
@@ -50,8 +51,8 @@ img {
 }
 
 .lightbox-img {
-    width: 95vw;
-    max-width: 1600px;
+    width: 100%;
+    max-width: 1400px;
     height: auto;
     display: block;
     margin: 2rem auto;
