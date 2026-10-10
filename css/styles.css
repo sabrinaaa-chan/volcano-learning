@@ -274,7 +274,15 @@ blockquote {
     text-align:center;
     margin:40px auto;
 }
-
+    
+.match-image{
+    width: 70%;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+    
 .match-question{
     display:grid;
     grid-template-columns:200px 150px;
