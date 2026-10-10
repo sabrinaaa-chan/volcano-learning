@@ -1,133 +1,61 @@
 /* =====================================
    CHAPTER 1 - VOLCANO EXPLORER
 ===================================== */
+const volcanoFeatures = [
+    "crater",
+    "vent",
+    "conduit",
+    "magma"
+];
 
-document.addEventListener("DOMContentLoaded", () => {
+let currentFeature = 0;
 
-    const dragLabels =
-        document.querySelectorAll(".drag-label");
+function updateTarget() {
+    document.getElementById("targetFeature").textContent =
+        volcanoFeatures[currentFeature]
+            .replace("magma","Magma Chamber")
+            .replace("crater","Crater")
+            .replace("vent","Vent")
+            .replace("conduit","Conduit");
+}
 
-    const dropSpots =
-        document.querySelectorAll(".drop-spot");
+function checkFeature(selected){
 
-    dragLabels.forEach(label => {
+    const target = volcanoFeatures[currentFeature];
 
-        label.addEventListener(
-            "dragstart",
-            e => {
+    if(selected === target){
 
-                e.dataTransfer.setData(
-                    "text/plain",
-                    label.id
-                );
+        document.getElementById("gameResult").innerHTML =
+            "✅ Correct!";
 
-            }
-        );
+        currentFeature++;
 
-    });
+        if(currentFeature >= volcanoFeatures.length){
 
-    dropSpots.forEach(spot => {
+            document.getElementById("gameResult").innerHTML =
+                "🎉 Excellent! You identified all volcano features.";
 
-        spot.addEventListener(
-            "dragover",
-            e => {
+            document.getElementById("targetFeature").textContent =
+                "Completed";
 
-                e.preventDefault();
+            return;
+        }
 
-            }
-        );
+        setTimeout(()=>{
+            updateTarget();
+            document.getElementById("gameResult").innerHTML="";
+        },1000);
 
-        spot.addEventListener(
-            "drop",
-            e => {
+    } else {
 
-                e.preventDefault();
-
-                const draggedId =
-                    e.dataTransfer.getData(
-                        "text/plain"
-                    );
-
-                const answer =
-                    spot.dataset.answer;
-
-                if(draggedId === answer){
-
-                    const item =
-                        document.getElementById(
-                            draggedId
-                        );
-
-                    spot.innerHTML =
-                        item.innerText;
-
-                    spot.style.background =
-                        "#dff0e0";
-
-                    item.remove();
-
-                    checkVolcanoExplorer();
-
-                } else {
-
-                    document
-                        .getElementById(
-                            "volcanoFeedback"
-                        )
-                        .innerHTML =
-                        "❌ Not quite. Try another location.";
-
-                }
-
-            }
-        );
-
-    });
-
-});
-
-function checkVolcanoExplorer(){
-
-    const remaining =
-        document.querySelectorAll(
-            ".drag-label"
-        );
-
-    if(remaining.length === 0){
-
-        document.getElementById(
-            "volcanoFeedback"
-        ).innerHTML = `
-
-        <div class="chapter-summary">
-
-            <h4>
-             🎉 Volcano Explorer Complete
-            </h4>
-
-            <p>
-             Excellent work! You identified:
-            </p>
-
-            <ul>
-                <li>Crater</li>
-                <li>Vent</li>
-                <li>Conduit</li>
-                <li>Magma Chamber</li>
-            </ul>
-
-            <p>
-             Scientists must understand volcano structure before interpreting monitoring signals.
-            </p>
-
-            <strong>
-                Score: 4 / 4
-            </strong>
-
-        </div>
-        `;
+        document.getElementById("gameResult").innerHTML =
+            "❌ Try again.";
     }
 }
+
+document.addEventListener("DOMContentLoaded",()=>{
+    updateTarget();
+});
 
 /* ==========================
    FINAL QUIZ
