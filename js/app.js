@@ -1,58 +1,60 @@
 /* =====================================
    CHAPTER 1 - VOLCANO EXPLORER
 ===================================== */
-let draggedItem = null;
-let score = 0;
+function checkMatchGame(){
 
-document.querySelectorAll(".draggable").forEach(item => {
+    let score = 0;
 
-    item.addEventListener("dragstart", () => {
-        draggedItem = item;
-    });
+    if(document.getElementById("crater").value === "A"){
+        score++;
+    }
 
-});
+    if(document.getElementById("vent").value === "B"){
+        score++;
+    }
 
-document.querySelectorAll(".dropzone").forEach(zone => {
+    if(document.getElementById("conduit").value === "C"){
+        score++;
+    }
 
-    zone.addEventListener("dragover", (e) => {
-        e.preventDefault();
-    });
+    if(document.getElementById("magma").value === "D"){
+        score++;
+    }
 
-    zone.addEventListener("drop", (e) => {
+    const result =
+        document.getElementById("matchResult");
 
-        e.preventDefault();
+    if(score === 4){
 
-        if (!draggedItem) return;
+        result.innerHTML =
+        result.innerHTML = `
+<h4>🎉 Excellent! Score: 4 / 4</h4>
 
-        const draggedFeature =
-            draggedItem.dataset.feature;
+<div class="component-review">
 
-        const targetFeature =
-            zone.dataset.feature;
+<p><strong>A – Crater</strong><br>
+The crater is the bowl-shaped opening at the summit where volcanic materials such as lava, ash, and gases are released.</p>
 
-        if (draggedFeature === targetFeature) {
+<p><strong>B – Vent</strong><br>
+The vent is the surface opening through which magma, gases, and volcanic ash travel to reach the surface.</p>
 
-            zone.classList.add("correct");
-            zone.textContent =
-                draggedItem.textContent;
+<p><strong>C – Conduit</strong><br>
+The conduit is the main underground pathway that transports magma from the magma chamber toward the surface.</p>
 
-            draggedItem.remove();
+<p><strong>D – Magma Chamber</strong><br>
+The magma chamber is a large underground reservoir where molten rock accumulates before moving upward toward an eruption.</p>
 
-            score++;
+</div>
+`;
 
-            if (score === 4) {
+    }else{
 
-                document.getElementById(
-                    "gameResult"
-                ).innerHTML =
-                "🎉 Excellent! All volcano parts identified correctly.";
-            }
-
-        }
-
-    });
-
-});
+        result.innerHTML =
+        "✅ Score: " +
+        score +
+        " / 4. Try again!";
+    }
+}
 
 /* ==========================
    FINAL QUIZ
