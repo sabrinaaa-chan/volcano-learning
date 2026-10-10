@@ -194,6 +194,12 @@ iframe {
     border-top:6px solid #2c5b86;
 }
 
+.game-container h3{
+    color:#2c5b86;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
 /* Buttons */
 
 button {
