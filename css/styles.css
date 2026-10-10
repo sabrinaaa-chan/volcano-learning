@@ -50,9 +50,11 @@ img {
 }
 
 .lightbox-img {
-    max-width: 800px;
-    width: 100%;
+    width: 95vw;
+    max-width: 1600px;
     height: auto;
+    display: block;
+    margin: 2rem auto;
 }
 
 .diagram-placeholder {
