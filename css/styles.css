@@ -49,6 +49,15 @@ img {
     border-radius: 8px;
 }
 
+.lightbox-img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
 .diagram-placeholder {
 height: 220px;
 background: #eef6f7;
