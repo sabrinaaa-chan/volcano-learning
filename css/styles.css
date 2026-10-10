@@ -183,15 +183,16 @@ iframe {
 
 .game-container{
     background:#ffffff;
-    border-radius:16px;
+    border-radius:18px;
     padding:30px;
-    margin:40px auto;
+    margin:60px auto 40px auto;
     max-width:1000px;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.08);
-
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
     border-top:6px solid #2c5b86;
+}
+
+.chapter-summary{
+    margin-bottom:50px;
 }
 
 .game-container h3{
