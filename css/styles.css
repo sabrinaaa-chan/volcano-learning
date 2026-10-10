@@ -98,8 +98,7 @@ iframe {
 
 .chapter img {
     width: 100%;
-    max-width: 900px;
-    height: 350px;
+    max-width: 1600px;
     object-fit: contain;
     display: block;
     margin: 10px auto;
