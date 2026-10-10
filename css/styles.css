@@ -36,7 +36,7 @@ section {
 }
 
 .chapter {
-    max-width: 1600px;
+    max-width: 1000px;
     width: 98%;
     margin: auto;
     border-bottom: 1px solid #ccc;
