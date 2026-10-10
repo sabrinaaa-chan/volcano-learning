@@ -1,60 +1,57 @@
 /* =====================================
    CHAPTER 1 - VOLCANO EXPLORER
 ===================================== */
-const volcanoFeatures = [
-    "crater",
-    "vent",
-    "conduit",
-    "magma"
-];
+let draggedItem = null;
+let score = 0;
 
-let currentFeature = 0;
+document.querySelectorAll(".draggable").forEach(item => {
 
-function updateTarget() {
-    document.getElementById("targetFeature").textContent =
-        volcanoFeatures[currentFeature]
-            .replace("magma","Magma Chamber")
-            .replace("crater","Crater")
-            .replace("vent","Vent")
-            .replace("conduit","Conduit");
-}
+    item.addEventListener("dragstart", () => {
+        draggedItem = item;
+    });
 
-function checkFeature(selected){
+});
 
-    const target = volcanoFeatures[currentFeature];
+document.querySelectorAll(".dropzone").forEach(zone => {
 
-    if(selected === target){
+    zone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+    });
 
-        document.getElementById("gameResult").innerHTML =
-            "✅ Correct!";
+    zone.addEventListener("drop", (e) => {
 
-        currentFeature++;
+        e.preventDefault();
 
-        if(currentFeature >= volcanoFeatures.length){
+        if (!draggedItem) return;
 
-            document.getElementById("gameResult").innerHTML =
-                "🎉 Excellent! You identified all volcano features.";
+        const draggedFeature =
+            draggedItem.dataset.feature;
 
-            document.getElementById("targetFeature").textContent =
-                "Completed";
+        const targetFeature =
+            zone.dataset.feature;
 
-            return;
+        if (draggedFeature === targetFeature) {
+
+            zone.classList.add("correct");
+            zone.textContent =
+                draggedItem.textContent;
+
+            draggedItem.remove();
+
+            score++;
+
+            if (score === 4) {
+
+                document.getElementById(
+                    "gameResult"
+                ).innerHTML =
+                "🎉 Excellent! All volcano parts identified correctly.";
+            }
+
         }
 
-        setTimeout(()=>{
-            updateTarget();
-            document.getElementById("gameResult").innerHTML="";
-        },1000);
+    });
 
-    } else {
-
-        document.getElementById("gameResult").innerHTML =
-            "❌ Try again.";
-    }
-}
-
-document.addEventListener("DOMContentLoaded",()=>{
-    updateTarget();
 });
 
 /* ==========================
