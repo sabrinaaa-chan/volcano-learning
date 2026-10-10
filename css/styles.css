@@ -51,8 +51,8 @@ img {
 }
 
 .lightbox-img {
-    width: 100%;
-    max-width: 1400px;
+    width: 1200;
+    max-width: 1200px;
     height: auto;
     display: block;
     margin: 2rem auto;
@@ -98,7 +98,7 @@ iframe {
 
 .chapter img {
     width: 100%;
-    max-width: 1600px;
+    max-width: 1200px;
     object-fit: contain;
     display: block;
     margin: 10px auto;
