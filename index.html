@@ -199,58 +199,33 @@
             how scientists forecast eruptions.
         </blockquote>
 
-    <div class="game">
+    <div class="hotspot-game">
 
-    <h3>Game: Volcano Label Challenge</h3>
+    <h3>Volcano Explorer Game</h3>
 
     <p>
-        Select a volcano component, then click the correct location on the diagram.
+        Click the correct location for each volcano feature.
     </p>
 
-    <div id="selectedLabel">
-        Selected Label:
-        <strong>None</strong>
+    <div class="game-status">
+        Find: <span id="targetFeature">Crater</span>
     </div>
 
-    <div id="volcanoContainer">
+    <div id="volcanoGame">
 
-        assets/images/volcano-game.png
+        assets/images/Ch1game.png
 
-        <div class="hotspot crater"
-             onclick="checkVolcanoLocation('crater')"></div>
+        <div class="hotspot crater" onclick="checkFeature('crater')"></div>
 
-        <div class="hotspot vent"
-             onclick="checkVolcanoLocation('vent')"></div>
+        <div class="hotspot vent" onclick="checkFeature('vent')"></div>
 
-        <div class="hotspot conduit"
-             onclick="checkVolcanoLocation('conduit')"></div>
+        <div class="hotspot conduit" onclick="checkFeature('conduit')"></div>
 
-        <div class="hotspot magma"
-             onclick="checkVolcanoLocation('magma')"></div>
+        <div class="hotspot magma" onclick="checkFeature('magma')"></div>
 
     </div>
 
-    <div class="label-bank">
-
-        <button onclick="selectLabel('crater')">
-            Crater
-        </button>
-
-        <button onclick="selectLabel('vent')">
-            Vent
-        </button>
-
-        <button onclick="selectLabel('conduit')">
-            Conduit
-        </button>
-
-        <button onclick="selectLabel('magma')">
-            Magma Chamber
-        </button>
-
-    </div>
-
-    <div id="volcanoFeedback"></div>
+    <div id="gameResult"></div>
 
 </div>
         
