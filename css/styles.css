@@ -181,6 +181,19 @@ iframe {
     border-radius: 8px;
 }
 
+.game-container{
+    background:#ffffff;
+    border-radius:16px;
+    padding:30px;
+    margin:40px auto;
+    max-width:1000px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+    border-top:6px solid #2c5b86;
+}
+
 /* Buttons */
 
 button {
