@@ -129,6 +129,10 @@ function checkVolcanoExplorer(){
     }
 }
 
+/* ==========================
+   FINAL QUIZ
+========================== */
+
 const qs = [
 
 [
@@ -162,44 +166,54 @@ const qs = [
 
 ];
 
-let html = '';
+const quizContainer =
+document.getElementById("quizApp");
 
-qs.forEach((q, i) => {
+if (quizContainer) {
 
-    html += `<div class="quiz-question">`;
+    let html = "";
 
-    html += `<p><strong>Question ${i + 1}</strong></p>`;
-
-    html += `<p>${q[0]}</p>`;
-
-    q[1].forEach((option, j) => {
+    qs.forEach((q, i) => {
 
         html += `
-        <label>
-            <input
-                type="radio"
-                name="q${i}"
-                value="${j}">
-            ${option}
-        </label>
-        <br><br>
+        <div class="quiz-question">
+
+            <p><strong>Question ${i + 1}</strong></p>
+
+            <p>${q[0]}</p>
         `;
 
+        q[1].forEach((option, j) => {
+
+            html += `
+            <label>
+
+                <input
+                    type="radio"
+                    name="q${i}"
+                    value="${j}">
+
+                ${option}
+
+            </label>
+
+            <br><br>
+            `;
+        });
+
+        html += `</div><hr>`;
     });
 
-    html += `</div><hr>`;
+    html += `
+        <button onclick="gradeQuiz()">
+            Submit Quiz
+        </button>
 
-});
+        <div id="quizResult"></div>
+    `;
 
-html += `
-<button onclick="gradeQuiz()">
-Submit Quiz
-</button>
-
-<div id="quizResult"></div>
-`;
-
-document.getElementById("quizApp").innerHTML = html;
+    quizContainer.innerHTML = html;
+}
 
 function gradeQuiz() {
 
@@ -207,14 +221,14 @@ function gradeQuiz() {
 
     qs.forEach((q, i) => {
 
-        const selected =
-            document.querySelector(
-                `input[name="q${i}"\]:checked`
-            );
+        const answer =
+        document.querySelector(
+            `input[name="q${i}"]:checked`
+        );
 
         if (
-            selected &&
-            parseInt(selected.value) === q[2]
+            answer &&
+            parseInt(answer.value) === q[2]
         ) {
             score++;
         }
@@ -226,12 +240,12 @@ function gradeQuiz() {
     if (score === 3) {
 
         feedback =
-        "🌋 Excellent! You have a strong understanding of volcanic forecasting processes.";
+        "🌋 Excellent! You have mastered the key forecasting concepts.";
 
     } else if (score === 2) {
 
         feedback =
-        "✅ Good work. Review the chapters and try again to achieve full marks.";
+        "✅ Good work. Review the chapters and try again for full marks.";
 
     } else {
 
@@ -247,7 +261,7 @@ function gradeQuiz() {
 
             <h3>Quiz Results</h3>
 
-           <p>
+            <p>
                 Score:
                 <strong>${score}/3</strong>
             </p>
@@ -255,10 +269,6 @@ function gradeQuiz() {
             <p>
                 ${feedback}
             </p>
-
-            <button onclick="location.reload()">
-                Retake Quiz
-            </button>
 
         </div>
     `;
