@@ -199,33 +199,30 @@
             how scientists forecast eruptions.
         </blockquote>
 
-    <div class="hotspot-game">
+    <div class="volcano-game">
 
     <h3>Volcano Explorer Game</h3>
 
-    <p>
-        Click the correct location for each volcano feature.
-    </p>
+    <p>Drag each label onto the correct volcano feature.</p>
 
-    <div class="game-status">
-        Find: <span id="targetFeature">Crater</span>
+    <div class="labels-panel">
+        <div class="draggable" draggable="true" data-feature="crater">Crater</div>
+        <div class="draggable" draggable="true" data-feature="vent">Vent</div>
+        <div class="draggable" draggable="true" data-feature="conduit">Conduit</div>
+        <div class="draggable" draggable="true" data-feature="magma">Magma Chamber</div>
     </div>
 
-    <div id="volcanoGame">
+    <div class="volcano-board">
 
-    
-        <img id="volcanoImage"
-     class="chapter-img"
-     src="assets/images/Ch1game.png"
-     alt="Volcano Explorer">
-        
-        <div class="hotspot crater" onclick="checkFeature('crater')"></div>
+        assets/images/Ch1game.png
 
-        <div class="hotspot vent" onclick="checkFeature('vent')"></div>
+        <div class="dropzone crater-zone" data-feature="crater"></div>
 
-        <div class="hotspot conduit" onclick="checkFeature('conduit')"></div>
+        <div class="dropzone vent-zone" data-feature="vent"></div>
 
-        <div class="hotspot magma" onclick="checkFeature('magma')"></div>
+        <div class="dropzone conduit-zone" data-feature="conduit"></div>
+
+        <div class="dropzone magma-zone" data-feature="magma"></div>
 
     </div>
 
