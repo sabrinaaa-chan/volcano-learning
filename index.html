@@ -504,18 +504,66 @@
 
     <div class="game">
 
-        <h3>Game: Monitoring Manager</h3>
+    <h3>Game: Monitoring Manager</h3>
+
+    <p>
+        You are a volcanologist with a limited monitoring budget.
+        Select instruments to investigate the volcano.
+    </p>
+
+    <div class="budget-panel">
+
+        <h4>Monitoring Budget</h4>
 
         <p>
-            Build a volcano monitoring network by selecting instruments within
-            a limited budget. Can you collect enough evidence to assess volcanic activity?
+            Remaining Credits:
+            <strong id="budgetValue">100</strong>
         </p>
 
-        <button onclick="playGame(2)">Play</button>
+    </div>
 
-        <div id="g2"></div>
+    <div class="instrument-grid">
+
+        <button onclick="buyInstrument('seismo',30)">
+            Seismometer (30)
+        </button>
+
+        <button onclick="buyInstrument('gps',25)">
+            GPS Station (25)
+        </button>
+
+        <button onclick="buyInstrument('gas',20)">
+            Gas Sensor (20)
+        </button>
+
+        <button onclick="buyInstrument('thermal',25)">
+            Thermal Camera (25)
+        </button>
+
+        <button onclick="buyInstrument('satellite',40)">
+            Satellite Observation (40)
+        </button>
 
     </div>
+
+    <div class="selected-panel">
+
+        <h4>Selected Instruments</h4>
+
+        <ul id="selectedInstruments"></ul>
+
+    </div>
+
+    <button class="analyze-btn"
+            onclick="analyzeVolcano()">
+
+        Analyze Volcano
+
+    </button>
+
+    <div id="monitoringResults"></div>
+
+</div>
 
 </section>
 <section id="ch3" class="chapter">
