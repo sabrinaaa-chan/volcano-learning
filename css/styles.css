@@ -496,3 +496,51 @@ blockquote {
     border-radius:8px;
 
 }
+
+/*ch3*/
+.pressure-dashboard{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+
+    gap:20px;
+
+    margin-top:20px;
+}
+
+.control-panel,
+.status-panel{
+
+    background:#ffffff;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    border:1px solid #d8dde3;
+}
+
+.control-panel label{
+
+    display:block;
+
+    font-weight:600;
+
+    margin-top:15px;
+}
+
+.control-panel input[type="range"]{
+
+    width:100%;
+}
+
+#pressureMessage{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:10px;
+}
