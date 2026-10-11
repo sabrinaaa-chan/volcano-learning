@@ -616,3 +616,215 @@ function startMission(){
     },5000);
 
 }
+/* ==========================
+   CHAPTER 4
+   SCENARIO DETECTIVE
+========================== */
+
+const scenarios = [
+
+{
+    title:"Scenario 1",
+
+    answer:"background",
+
+    data:[
+        "⚡ Earthquakes: Low",
+        "🌋 Gas Emissions: Normal",
+        "📏 Ground Deformation: Stable",
+        "🌡 Temperature: Normal"
+    ],
+
+    explanation:
+    "These observations suggest background activity. Small changes are normal at many volcanoes."
+},
+
+{
+    title:"Scenario 2",
+
+    answer:"elevated",
+
+    data:[
+        "⚡ Earthquakes: Increasing",
+        "🌋 Gas Emissions: Slightly Elevated",
+        "📏 Ground Deformation: Moderate",
+        "🌡 Temperature: Elevated"
+    ],
+
+    explanation:
+    "Multiple monitoring signals are changing. Scientists would increase monitoring and investigate further."
+},
+
+{
+    title:"Scenario 3",
+
+    answer:"unrest",
+
+    data:[
+        "⚡ Earthquakes: Frequent",
+        "🌋 Gas Emissions: High",
+        "📏 Ground Deformation: Rapid",
+        "🌡 Strong Thermal Anomaly"
+    ],
+
+    explanation:
+    "Several indicators show significant unrest. Volcanologists would monitor the volcano very closely."
+}
+
+];
+
+let currentScenario = 0;
+let scenarioScore = 0;
+
+function loadScenario(){
+
+    const s =
+        scenarios[currentScenario];
+
+    document.getElementById(
+        "scenarioTitle"
+    ).innerText =
+        s.title;
+
+    document.getElementById(
+        "scenarioData"
+    ).innerHTML =
+        s.data.map(
+            item =>
+            `<li>${item}</li>`
+        ).join("");
+
+}
+
+function checkScenario(choice){
+
+    const s =
+        scenarios[currentScenario];
+
+    const feedback =
+        document.getElementById(
+            "scenarioFeedback"
+        );
+
+    if(choice === s.answer){
+
+        scenarioScore++;
+
+        document.getElementById(
+            "scenarioScore"
+        ).innerText =
+            scenarioScore;
+
+        feedback.innerHTML = `
+
+        <div class="result-success">
+
+            <h4>
+            ✅ Good Assessment
+            </h4>
+
+            <p>
+            ${s.explanation}
+            </p>
+
+        </div>
+
+        `;
+
+    }
+    else{
+
+        feedback.innerHTML = `
+
+        <div class="result-warning">
+
+            <h4>
+            ❌ Not Quite
+            </h4>
+
+            <p>
+            ${s.explanation}
+            </p>
+
+        </div>
+
+        `;
+
+    }
+
+    setTimeout(()=>{
+
+        currentScenario++;
+
+        if(
+            currentScenario
+            <
+            scenarios.length
+        ){
+
+            loadScenario();
+
+            document.getElementById(
+                "scenarioFeedback"
+            ).innerHTML = "";
+
+        }
+        else{
+
+            finishScenarioGame();
+
+        }
+
+    },2500);
+
+}
+
+function finishScenarioGame(){
+
+    document.getElementById(
+        "scenarioCard"
+    ).innerHTML = `
+
+    <h3>
+        🎉 Scenario Detective Complete
+    </h3>
+
+    <p>
+        Final Score:
+        <strong>
+        ${scenarioScore}/3
+        </strong>
+    </p>
+
+    <p>
+        Scientists compare multiple monitoring signals together.
+    </p>
+
+    <p>
+        No single observation guarantees an eruption.
+    </p>
+
+    `;
+
+    document.querySelector(
+        ".scenario-buttons"
+    ).style.display =
+    "none";
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        if(
+            document.getElementById(
+                "scenarioCard"
+            )
+        ){
+
+            loadScenario();
+
+        }
+
+    }
+);
