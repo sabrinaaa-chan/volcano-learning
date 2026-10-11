@@ -804,12 +804,39 @@ function finishScenarioGame(){
         No single observation guarantees an eruption.
     </p>
 
+    <button onclick="restartScenarioGame()">
+        🔄 Play Again
+    </button>
+
     `;
 
     document.querySelector(
         ".scenario-buttons"
     ).style.display =
     "none";
+}
+
+function restartScenarioGame(){
+
+    currentScenario = 0;
+
+    scenarioScore = 0;
+
+    document.getElementById(
+        "scenarioScore"
+    ).innerText = "0";
+
+    document.querySelector(
+        ".scenario-buttons"
+    ).style.display =
+    "flex";
+
+    document.getElementById(
+        "scenarioFeedback"
+    ).innerHTML = "";
+
+    loadScenario();
+
 }
 
 document.addEventListener(
