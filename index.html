@@ -1224,18 +1224,51 @@
 
     <div class="game">
 
-        <h3>Game: Scenario Detective</h3>
+    <h3>Game: Scenario Detective</h3>
 
-        <p>
-            Examine monitoring data from different volcanoes and classify each
-            scenario as baseline activity, elevated concern or significant unrest.
-        </p>
+    <p>
+        Review the monitoring data and decide how concerned scientists should be.
+    </p>
 
-        <button onclick="playGame(4)">Play</button>
+    <div id="scenarioCard">
 
-        <div id="g4"></div>
+        <h4 id="scenarioTitle">
+            Scenario 1
+        </h4>
+
+        <ul id="scenarioData"></ul>
 
     </div>
+
+    <div class="scenario-buttons">
+
+        <button onclick="checkScenario('background')">
+            Background Activity
+        </button>
+
+        <button onclick="checkScenario('elevated')">
+            Elevated Concern
+        </button>
+
+        <button onclick="checkScenario('unrest')">
+            Significant Unrest
+        </button>
+
+    </div>
+
+    <div id="scenarioFeedback"></div>
+
+    <div class="progress-panel">
+
+        Score:
+        <strong id="scenarioScore">
+            0
+        </strong>
+        / 3
+
+    </div>
+
+</div>
 
 </section>
 <section id="ch5" class="chapter">
