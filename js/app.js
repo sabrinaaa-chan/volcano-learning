@@ -622,60 +622,47 @@ function startMission(){
 ========================== */
 
 const scenarios = [
-
 {
     title:"Scenario 1",
-
     answer:"background",
-
     data:[
         "⚡ Earthquakes: Low",
         "🌋 Gas Emissions: Normal",
         "📏 Ground Deformation: Stable",
         "🌡 Temperature: Normal"
     ],
-
     explanation:
     "These observations suggest background activity. Small changes are normal at many volcanoes."
 },
-
 {
     title:"Scenario 2",
-
     answer:"elevated",
-
     data:[
         "⚡ Earthquakes: Increasing",
         "🌋 Gas Emissions: Slightly Elevated",
         "📏 Ground Deformation: Moderate",
         "🌡 Temperature: Elevated"
     ],
-
     explanation:
-    "Multiple monitoring signals are changing. Scientists would increase monitoring and investigate further."
+    "Multiple monitoring signals are changing. Scientists would increase monitoring and investigation."
 },
-
 {
     title:"Scenario 3",
-
     answer:"unrest",
-
     data:[
         "⚡ Earthquakes: Frequent",
         "🌋 Gas Emissions: High",
         "📏 Ground Deformation: Rapid",
         "🌡 Strong Thermal Anomaly"
     ],
-
     explanation:
-    "Several indicators show significant unrest. Volcanologists would monitor the volcano very closely."
+    "Several indicators show significant unrest. Scientists would closely monitor the volcano."
 }
-
 ];
 
 let currentScenario = 0;
 let scenarioScore = 0;
-let scenarioLocked = false;
+let scenarioAnswered = false;
 
 function loadScenario(){
 
@@ -688,5 +675,189 @@ function loadScenario(){
     document.getElementById(
         "scenarioData"
     ).innerHTML =
-        s.data.map(
-   
+    s.data.map(
+        item => `<li>${item}</li>`
+    ).join("");
+
+}
+
+function checkScenario(choice){
+
+    if(scenarioAnswered){
+        return;
+    }
+
+    scenarioAnswered = true;
+
+    const s = scenarios[currentScenario];
+
+    const feedback =
+        document.getElementById(
+            "scenarioFeedback"
+        );
+
+    if(choice === s.answer){
+
+        scenarioScore++;
+
+        document.getElementById(
+            "scenarioScore"
+        ).innerText =
+        scenarioScore;
+
+        feedback.innerHTML = `
+        <div class="result-success">
+
+            <h4>
+            ✅ Good Assessment
+            </h4>
+
+            <p>
+            ${s.explanation}
+            </p>
+
+            <button onclick="nextScenario()">
+            Next Scenario →
+            </button>
+
+        </div>
+        `;
+
+    }
+    else{
+
+        feedback.innerHTML = `
+        <div class="result-warning">
+
+            <h4>
+            ❌ Not Quite
+            </h4>
+
+            <p>
+            ${s.explanation}
+            </p>
+
+            <button onclick="nextScenario()">
+            Next Scenario →
+            </button>
+
+        </div>
+        `;
+    }
+
+}
+
+function nextScenario(){
+
+    currentScenario++;
+
+    scenarioAnswered = false;
+
+    document.getElementById(
+        "scenarioFeedback"
+    ).innerHTML = "";
+
+    if(
+        currentScenario >=
+        scenarios.length
+    ){
+
+        finishScenarioGame();
+
+        return;
+    }
+
+    loadScenario();
+}
+
+function finishScenarioGame(){
+
+    document.getElementById(
+        "scenarioCard"
+    ).innerHTML = `
+
+    <h3>
+        🎉 Scenario Detective Complete
+    </h3>
+
+    <p>
+        Final Score:
+        <strong>
+        ${scenarioScore}/3
+        </strong>
+    </p>
+
+    <p>
+        Scientists compare multiple monitoring signals together.
+    </p>
+
+    <p>
+        No single observation guarantees an eruption.
+    </p>
+
+    <button onclick="restartScenarioGame()">
+        🔄 Play Again
+    </button>
+
+    `;
+
+    const buttons =
+        document.querySelector(
+            ".scenario-buttons"
+        );
+
+    if(buttons){
+
+        buttons.style.display =
+        "none";
+
+    }
+
+}
+
+function restartScenarioGame(){
+
+    currentScenario = 0;
+    scenarioScore = 0;
+    scenarioAnswered = false;
+
+    document.getElementById(
+        "scenarioScore"
+    ).innerText = "0";
+
+    const buttons =
+        document.querySelector(
+            ".scenario-buttons"
+        );
+
+    if(buttons){
+
+        buttons.style.display =
+        "flex";
+
+    }
+
+    document.getElementById(
+        "scenarioFeedback"
+    ).innerHTML = "";
+
+    loadScenario();
+
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        if(
+            document.getElementById(
+                "scenarioCard"
+            )
+        ){
+
+            loadScenario();
+
+        }
+
+    }
+);
