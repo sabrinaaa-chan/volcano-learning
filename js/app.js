@@ -379,3 +379,178 @@ function analyzeVolcano(){
     }
 
 }
+
+/* =====================================
+   CHAPTER 3 
+===================================== */
+function updateVolcano(){
+
+    const magma =
+        parseInt(
+            document.getElementById(
+                "magmaSlider"
+            ).value
+        );
+
+    const gas =
+        parseInt(
+            document.getElementById(
+                "gasSlider"
+            ).value
+        );
+
+    const conduit =
+        parseInt(
+            document.getElementById(
+                "conduitSlider"
+            ).value
+        );
+
+    let pressure =
+        magma
+        - (gas * 0.3)
+        - (conduit * 0.2);
+
+    pressure =
+        Math.max(
+            0,
+            Math.min(
+              100,
+              Math.round(pressure)
+            )
+        );
+
+    document.getElementById(
+        "pressureValue"
+    ).innerText = pressure;
+
+    let earthquakes = "";
+    let deformation = "";
+    let status = "";
+    let message = "";
+
+    if(pressure < 30){
+
+        earthquakes = "Low";
+
+        deformation = "Minimal";
+
+        status = "🟢 Stable";
+
+        message = `
+        <div class="result-success">
+
+            <h4>
+            ✅ Stable Volcano
+            </h4>
+
+            <p>
+            Gas escapes efficiently and pressure remains low.
+            Negative feedback helps stabilize the system.
+            </p>
+
+        </div>
+        `;
+
+    }
+
+    else if(pressure < 70){
+
+        earthquakes =
+            "Moderate";
+
+        deformation =
+            "Moderate";
+
+        status =
+            "🟡 Elevated";
+
+        message = `
+        <div class="result-warning">
+
+            <h4>
+            ⚠️ Elevated Activity
+            </h4>
+
+            <p>
+            Pressure is building.
+            Scientists would closely monitor
+            additional signals.
+            </p>
+
+        </div>
+        `;
+
+    }
+
+    else{
+
+        earthquakes =
+            "High";
+
+        deformation =
+            "Strong";
+
+        status =
+            "🔴 Unrest";
+
+        message = `
+        <div class="result-warning">
+
+            <h4>
+            🌋 Significant Unrest
+            </h4>
+
+            <p>
+            High magma supply combined with
+            insufficient gas release causes
+            pressure to build rapidly.
+            </p>
+
+            <p>
+            Earthquakes and deformation
+            increase significantly.
+            </p>
+
+        </div>
+        `;
+
+    }
+
+    document.getElementById(
+        "earthquakeValue"
+    ).innerText =
+        earthquakes;
+
+    document.getElementById(
+        "deformationValue"
+    ).innerText =
+        deformation;
+
+    document.getElementById(
+        "statusValue"
+    ).innerText =
+        status;
+
+    document.getElementById(
+        "pressureMessage"
+    ).innerHTML =
+        message;
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        if(
+            document.getElementById(
+                "magmaSlider"
+            )
+        ){
+
+            updateVolcano();
+
+        }
+
+    }
+);
