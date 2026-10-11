@@ -752,30 +752,40 @@ function checkScenario(choice){
 
     }
 
-    setTimeout(()=>{
+    document.getElementById(
+    "scenarioFeedback"
+).innerHTML += `
 
-        currentScenario++;
+<br>
 
-        if(
-            currentScenario
-            <
-            scenarios.length
-        ){
+<button onclick="nextScenario()">
+    Next Scenario →
+</button>
 
-            loadScenario();
+`;
 
-            document.getElementById(
-                "scenarioFeedback"
-            ).innerHTML = "";
+function nextScenario(){
 
-        }
-        else{
+    currentScenario++;
 
-            finishScenarioGame();
+    if(
+        currentScenario <
+        scenarios.length
+    ){
 
-        }
+        loadScenario();
 
-    },2500);
+        document.getElementById(
+            "scenarioFeedback"
+        ).innerHTML = "";
+
+    }
+    else{
+
+        finishScenarioGame();
+
+    }
+}
 
 }
 
@@ -785,28 +795,34 @@ function finishScenarioGame(){
         "scenarioCard"
     ).innerHTML = `
 
-    <h3>
-        🎉 Scenario Detective Complete
-    </h3>
+        <h3>
+            🎉 Scenario Detective Complete
+        </h3>
 
-    <p>
-        Final Score:
-        <strong>
-        ${scenarioScore}/3
-        </strong>
-    </p>
+        <p>
+            Final Score:
+            <strong>
+                ${scenarioScore}/3
+            </strong>
+        </p>
 
-    <p>
-        Scientists compare multiple monitoring signals together.
-    </p>
+        <p>
+            Scientists compare multiple monitoring
+            signals together when assessing volcanic
+            activity.
+        </p>
 
-    <p>
-        No single observation guarantees an eruption.
-    </p>
+        <p>
+            No single observation guarantees an
+            eruption.
+        </p>
 
-    <button onclick="restartScenarioGame()">
-        🔄 Play Again
-    </button>
+        <button
+            onclick="restartScenarioGame()">
+
+            🔄 Play Again
+
+        </button>
 
     `;
 
@@ -836,7 +852,6 @@ function restartScenarioGame(){
     ).innerHTML = "";
 
     loadScenario();
-
 }
 
 document.addEventListener(
