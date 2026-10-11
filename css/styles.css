@@ -629,3 +629,27 @@ blockquote {
     font-weight:bold;
 
 }
+
+.game button{
+
+    background:#42607A;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:12px 20px;
+
+    cursor:pointer;
+
+    transition:0.2s;
+
+}
+
+.game button:hover{
+
+    background:#324b60;
+
+}
