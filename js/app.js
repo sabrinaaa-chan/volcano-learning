@@ -200,3 +200,182 @@ function gradeQuiz() {
         </div>
     `;
 }
+
+/* ==========================
+   CHAPTER 2
+   MONITORING MANAGER
+========================== */
+
+let budget = 100;
+
+const selectedInstruments = [];
+
+const instrumentNames = {
+
+    seismo:"Seismometer",
+    gps:"GPS Station",
+    gas:"Gas Sensor",
+    thermal:"Thermal Camera",
+    satellite:"Satellite Observation"
+
+};
+
+function buyInstrument(type,cost){
+
+    if(selectedInstruments.includes(type)){
+
+        return;
+
+    }
+
+    if(budget < cost){
+
+        alert(
+            "Not enough monitoring credits."
+        );
+
+        return;
+    }
+
+    budget -= cost;
+
+    selectedInstruments.push(type);
+
+    document.getElementById(
+        "budgetValue"
+    ).innerText = budget;
+
+    const li =
+        document.createElement("li");
+
+    li.innerText =
+        instrumentNames[type];
+
+    document
+        .getElementById(
+            "selectedInstruments"
+        )
+        .appendChild(li);
+
+}
+
+function analyzeVolcano(){
+
+    const results =
+        document.getElementById(
+            "monitoringResults"
+        );
+
+    let signals = [];
+
+    if(selectedInstruments.includes("seismo")){
+
+        signals.push(
+          "Increasing earthquake activity detected."
+        );
+
+    }
+
+    if(selectedInstruments.includes("gps")){
+
+        signals.push(
+          "Ground uplift detected."
+        );
+
+    }
+
+    if(selectedInstruments.includes("gas")){
+
+        signals.push(
+          "Volcanic gas emissions elevated."
+        );
+
+    }
+
+    if(selectedInstruments.includes("thermal")){
+
+        signals.push(
+          "Surface temperatures increasing."
+        );
+
+    }
+
+    if(selectedInstruments.includes("satellite")){
+
+        signals.push(
+          "Satellite confirms regional changes."
+        );
+
+    }
+
+    if(selectedInstruments.length >= 3){
+
+        results.innerHTML = `
+
+        <div class="result-success">
+
+            <h4>
+            ✅ Strong Monitoring Network
+            </h4>
+
+            <p>
+            Observations collected:
+            </p>
+
+            <ul>
+                ${signals.map(
+                    s=>`<li>${s}</li>`
+                ).join("")}
+            </ul>
+
+            <p>
+            Scientists are more confident when
+            multiple independent monitoring
+            signals support the same interpretation.
+            </p>
+
+            <strong>
+            Confidence Level: High
+            </strong>
+
+        </div>
+
+        `;
+    }
+    else{
+
+        results.innerHTML = `
+
+        <div class="result-warning">
+
+            <h4>
+            ⚠️ Limited Monitoring Information
+            </h4>
+
+            <p>
+            Observations collected:
+            </p>
+
+            <ul>
+                ${signals.map(
+                    s=>`<li>${s}</li>`
+                ).join("")}
+            </ul>
+
+            <p>
+            One or two instruments provide useful
+            information, but scientists usually
+            need multiple monitoring methods to
+            understand volcanic activity.
+            </p>
+
+            <strong>
+            Confidence Level: Low
+            </strong>
+
+        </div>
+
+        `;
+    }
+
+}
