@@ -554,3 +554,65 @@ document.addEventListener(
 
     }
 );
+let missionTime = 30;
+let stabilityScore = 100;
+let missionRunning = false;
+
+function startMission(){
+
+    if(missionRunning) return;
+
+    missionRunning = true;
+
+    const timer = setInterval(()=>{
+
+        missionTime--;
+
+        document.getElementById(
+            "missionTimer"
+        ).innerText =
+            missionTime;
+
+        if(missionTime <= 0){
+
+            clearInterval(timer);
+
+            finishMission();
+
+        }
+
+    },1000);
+
+    const events = [
+
+        "⚠️ Magma pulse detected (+15 pressure)",
+
+        "⚠️ Gas trapped beneath conduit (+10 pressure)",
+
+        "⚠️ New earthquake swarm detected",
+
+        "✅ Gas release increased naturally",
+
+        "✅ Surface vent reopened"
+
+    ];
+
+    setInterval(()=>{
+
+        const event =
+            events[
+                Math.floor(
+                    Math.random()
+                    *
+                    events.length
+                )
+            ];
+
+        document.getElementById(
+            "eventPanel"
+        ).innerText =
+            event;
+
+    },5000);
+
+}
