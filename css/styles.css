@@ -289,7 +289,7 @@ blockquote {
         padding: 10px;
     }
     
-/* volcano-game */
+/* CH1-game */
 .match-game{
     text-align:center;
     margin:40px auto;
@@ -398,4 +398,101 @@ blockquote {
 .component-review p{
     margin-bottom:16px;
     line-height:1.6;
+}
+
+/* CH2-game */
+    
+.budget-panel{
+
+    background:#eef6f7;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin-bottom:20px;
+
+}
+
+.instrument-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+
+    gap:10px;
+
+    margin-bottom:20px;
+
+}
+
+.instrument-grid button{
+
+    min-height:60px;
+
+}
+
+.selected-panel{
+
+    background:#f7f9fb;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin-bottom:20px;
+
+}
+
+.selected-panel ul{
+
+    margin:0;
+
+    padding-left:20px;
+
+}
+
+.analyze-btn{
+
+    background:#42607A;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.result-success{
+
+    background:#eef7f2;
+
+    border-left:5px solid green;
+
+    padding:15px;
+
+    margin-top:20px;
+
+    border-radius:8px;
+
+}
+
+.result-warning{
+
+    background:#fff8e6;
+
+    border-left:5px solid orange;
+
+    padding:15px;
+
+    margin-top:20px;
+
+    border-radius:8px;
+
 }
