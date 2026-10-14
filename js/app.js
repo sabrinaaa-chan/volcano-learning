@@ -302,18 +302,6 @@ function analyzeVolcano(){
 
         results.innerHTML = `
 
-        const btn =
-document.getElementById(
-    "analyzeBtn"
-);
-
-if(btn){
-
-    btn.style.display =
-    "none";
-
-}
-
         <div class="result-success">
 
             <h4>
@@ -350,48 +338,62 @@ if(btn){
 
         `;
 
+    }else{
+
+        results.innerHTML = `
+
+        <div class="result-warning">
+
+            <h4>
+            ⚠️ Limited Monitoring Information
+            </h4>
+
+            <p>
+            Observations collected:
+            </p>
+
+            <ul>
+                ${signals.map(
+                    s => `<li>${s}</li>`
+                ).join("")}
+            </ul>
+
+            <p>
+            One or two instruments provide useful information,
+            but scientists usually need multiple monitoring methods
+            to understand volcanic activity.
+            </p>
+
+            <strong>
+            Confidence Level: Low
+            </strong>
+
+            <br><br>
+
+            <button onclick="restartMonitoringGame()">
+                🔄 Play Again
+            </button>
+
+        </div>
+
+        `;
+
     }
-   else{
 
-    results.innerHTML = `
+    const btn =
+        document.getElementById(
+            "analyzeBtn"
+        );
 
-    <div class="result-warning">
+    if(btn){
 
-        <h4>
-        ⚠️ Limited Monitoring Information
-        </h4>
+        btn.style.display =
+            "none";
 
-        <p>
-        Observations collected:
-        </p>
+    }
 
-        <ul>
-            ${signals.map(
-                s => `<li>${s}</li>`
-            ).join("")}
-        </ul>
-
-        <p>
-        One or two instruments provide useful information,
-        but scientists usually need multiple monitoring methods
-        to understand volcanic activity.
-        </p>
-
-        <strong>
-        Confidence Level: Low
-        </strong>
-
-        <br><br>
-
-        <button onclick="restartMonitoringGame()">
-            🔄 Play Again
-        </button>
-
-    </div>
-
-    `;
 }
-   
+
 function restartMonitoringGame(){
 
     budget = 100;
@@ -411,19 +413,18 @@ function restartMonitoringGame(){
     ).innerHTML = "";
 
     const btn =
-    document.getElementById(
-        "analyzeBtn"
-    );
+        document.getElementById(
+            "analyzeBtn"
+        );
 
     if(btn){
 
         btn.style.display =
-        "inline-block";
+            "inline-block";
 
     }
 
 }
-
         </div>
 
         `;
