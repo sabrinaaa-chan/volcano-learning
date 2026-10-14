@@ -831,21 +831,23 @@
 
     </div>
 
-    <div class="game">
+   <div class="game">
 
-    <h3>Game: Pressure Controller</h3>
+    <h3>🌋 Pressure Controller</h3>
 
     <p>
-        Adjust volcanic conditions and try to keep the system stable.
+        Keep the volcano stable while monitoring multiple signals.
     </p>
+
+    <button onclick="startMission()">
+        Start Mission
+    </button>
 
     <div class="pressure-dashboard">
 
         <div class="control-panel">
 
-            <label>
-                Magma Supply
-            </label>
+            <label>Magma Supply</label>
 
             <input
                 type="range"
@@ -855,9 +857,7 @@
                 value="50"
                 oninput="updateVolcano()">
 
-            <label>
-                Gas Release
-            </label>
+            <label>Gas Release</label>
 
             <input
                 type="range"
@@ -867,9 +867,7 @@
                 value="50"
                 oninput="updateVolcano()">
 
-            <label>
-                Conduit Openness
-            </label>
+            <label>Conduit Openness</label>
 
             <input
                 type="range"
@@ -883,56 +881,77 @@
 
         <div class="status-panel">
 
-    <h4>Volcano Observatory Dashboard</h4>
+            <h4>Volcano Observatory Dashboard</h4>
 
-    <p>
-        Mission Time:
-        <strong id="missionTimer">30</strong>s
-    </p>
+            <p>
+                Mission Time:
+                <strong id="missionTimer">30</strong>s
+            </p>
 
-    <p>
-        Stability Score:
-        <strong id="scoreValue">100</strong>
-    </p>
+            <p>
+                Stability Score:
+                <strong id="scoreValue">100</strong>
+            </p>
 
-    <p>
-        Pressure:
-        <strong id="pressureValue">50</strong>
-    </p>
+            <hr>
 
-    <div class="pressure-bar">
+            <p>
+                Pressure:
+                <strong id="pressureValue">50</strong>
+            </p>
 
-        <div id="pressureFill"></div>
+            <div class="pressure-bar">
+                <div id="pressureFill"></div>
+            </div>
+
+            <p>
+                Earthquake Activity:
+                <strong id="earthquakeValue">
+                    Moderate
+                </strong>
+            </p>
+
+            <p>
+                Ground Deformation:
+                <strong id="deformationValue">
+                    Moderate
+                </strong>
+            </p>
+
+            <p>
+                Temperature:
+                <strong id="temperatureValue">
+                    170°C
+                </strong>
+            </p>
+
+            <p>
+                Gas Emissions:
+                <strong id="gasValue">
+                    Moderate
+                </strong>
+            </p>
+
+            <p>
+                System Status:
+                <strong id="statusValue">
+                    🟡 Elevated
+                </strong>
+            </p>
+
+        </div>
 
     </div>
-<p>
-        Earthquake Activity:
-        <strong id="earthquakeValue">
-            Moderate
-        </strong>
-    </p>
 
-    <p>
-        Ground Deformation:
-        <strong id="deformationValue">
-            Moderate
-        </strong>
-    </p>
+    <div id="eventPanel">
 
-    <p>
-        System Status:
-        <strong id="statusValue">
-            🟡 Elevated
-        </strong>
-    </p>
+        Awaiting volcanic updates...
+
+    </div>
+
+    <div id="pressureMessage"></div>
 
 </div>
-
-<div id="eventPanel">
-
-    Awaiting volcanic updates...
-</div>
-
 </section>
         <section id="ch4" class="chapter">
 
