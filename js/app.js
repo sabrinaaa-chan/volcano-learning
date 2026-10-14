@@ -404,6 +404,8 @@ let eventLoop;
 
 function startMission(){
 
+    console.log("Mission Started");
+
     if(missionRunning){
         return;
     }
@@ -420,43 +422,41 @@ function startMission(){
 
     renderDashboard();
 
+    const timerElement =
+        document.getElementById(
+            "missionTimer"
+        );
+
+    if(timerElement){
+        timerElement.innerText = "30";
+    }
+
     document.getElementById(
         "eventPanel"
     ).innerHTML =
     "🌋 Mission started. Monitor the volcano carefully.";
 
+    clearInterval(gameLoop);
+    clearInterval(eventLoop);
+
     gameLoop = setInterval(()=>{
 
-    missionTime--;
-
-    const timer =
-        document.getElementById(
-            "missionTimer"
+        console.log(
+            "Timer:",
+            missionTime
         );
 
-    if(timer){
+        missionTime--;
 
-        timer.innerText =
-            missionTime;
+        if(timerElement){
 
-    }
+            timerElement.innerText =
+                missionTime;
 
-    try{
+        }
 
         updateSystem();
 
-    }
-    catch(error){
-
-        console.error(
-            error
-        );
-
-        clearInterval(
-            gameLoop
-        );
-
-    }
         if(missionTime <= 0){
 
             clearInterval(gameLoop);
@@ -473,6 +473,7 @@ function startMission(){
         randomEvent();
 
     },5000);
+
 }
 
 /* =====================
@@ -754,7 +755,7 @@ document.addEventListener(
     }
 );
 
-==========================
+/* ==========================
    CHAPTER 4
    SCENARIO DETECTIVE
 ========================== */
