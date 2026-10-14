@@ -756,10 +756,13 @@ function nextScenario(){
 
 function finishScenarioGame(){
 
-    document.getElementById(
-        "scenarioCard"
-    ).innerHTML =
-    `
+    const card =
+        document.getElementById(
+            "scenarioCard"
+        );
+
+    card.innerHTML = `
+
         <h3>
             🎉 Forecasting Challenge Complete
         </h3>
@@ -772,9 +775,9 @@ function finishScenarioGame(){
         </p>
 
         <p>
-            Scientists combine multiple observations,
-            expert interpretation and uncertainty
-            when assessing volcanic activity.
+            Scientists combine observations,
+            interpretation and uncertainty
+            when forecasting volcanic activity.
         </p>
 
         <p>
@@ -785,12 +788,20 @@ function finishScenarioGame(){
         <button onclick="restartScenarioGame()">
             🔄 Play Again
         </button>
+
     `;
 
-    document.querySelector(
-        ".scenario-buttons"
-    ).style.display =
-        "none";
+    const buttons =
+        document.querySelector(
+            ".scenario-buttons"
+        );
+
+    if(buttons){
+
+        buttons.style.display =
+            "none";
+
+    }
 
 }
 
@@ -808,8 +819,19 @@ function restartScenarioGame(){
 
     document.querySelector(
         ".scenario-buttons"
-    ).style.display =
-        "flex";
+    ).style.display = "flex";
+
+    document.getElementById(
+        "scenarioCard"
+    ).innerHTML = `
+
+        <h4 id="scenarioTitle">
+            Scenario 1
+        </h4>
+
+        <ul id="scenarioData"></ul>
+
+    `;
 
     document.getElementById(
         "scenarioFeedback"
