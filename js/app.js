@@ -639,17 +639,32 @@ let scenarioAnswered = false;
 
 function loadScenario(){
 
+    const title =
+        document.getElementById(
+            "scenarioTitle"
+        );
+
+    const data =
+        document.getElementById(
+            "scenarioData"
+        );
+
+    if(!title || !data){
+
+        console.error(
+            "Scenario elements missing"
+        );
+
+        return;
+    }
+
     const s =
         scenarios[currentScenario];
 
-    document.getElementById(
-        "scenarioTitle"
-    ).innerText =
+    title.innerText =
         s.title;
 
-    document.getElementById(
-        "scenarioData"
-    ).innerHTML =
+    data.innerHTML =
         s.data.map(
             item =>
             `<li>${item}</li>`
@@ -808,18 +823,14 @@ function finishScenarioGame(){
 function restartScenarioGame(){
 
     currentScenario = 0;
-
     scenarioScore = 0;
-
     scenarioAnswered = false;
 
     document.getElementById(
         "scenarioScore"
     ).innerText = "0";
 
-    document.querySelector(
-        ".scenario-buttons"
-    ).style.display = "flex";
+    /* rebuild scenario card */
 
     document.getElementById(
         "scenarioCard"
@@ -833,9 +844,27 @@ function restartScenarioGame(){
 
     `;
 
+    /* clear feedback */
+
     document.getElementById(
         "scenarioFeedback"
     ).innerHTML = "";
+
+    /* show buttons again */
+
+    const buttons =
+        document.querySelector(
+            ".scenario-buttons"
+        );
+
+    if(buttons){
+
+        buttons.style.display =
+            "flex";
+
+    }
+
+    /* load first scenario */
 
     loadScenario();
 
