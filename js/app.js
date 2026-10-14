@@ -374,7 +374,10 @@ function analyzeVolcano(){
             <button onclick="restartMonitoringGame()">
                 🔄 Play Again
             </button>
-
+            
+document.getElementById(
+    "analyzeBtn"
+).style.display = "none";
         </div>
 
         `;
@@ -399,7 +402,11 @@ function restartMonitoringGame(){
     document.getElementById(
         "monitoringResults"
     ).innerHTML = "";
-
+   
+document.getElementById(
+    "analyzeBtn"
+).style.display = "inline-block";
+   
 }
 
         </div>
