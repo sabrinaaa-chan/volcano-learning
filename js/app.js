@@ -335,8 +335,14 @@ function analyzeVolcano(){
             </p>
 
             <strong>
-            Confidence Level: High
-            </strong>
+Confidence Level: High
+</strong>
+
+<br><br>
+
+<button onclick="restartMonitoringGame()">
+    🔄 Play Again
+</button>
 
         </div>
 
@@ -369,9 +375,31 @@ function analyzeVolcano(){
             understand volcanic activity.
             </p>
 
-            <strong>
-            Confidence Level: Low
-            </strong>
+            <br><br>
+
+<button onclick="restartMonitoringGame()">
+    🔄 Play Again
+</button>
+
+function restartMonitoringGame(){
+
+    budget = 100;
+
+    selectedInstruments.length = 0;
+
+    document.getElementById(
+        "budgetValue"
+    ).innerText = "100";
+
+    document.getElementById(
+        "selectedInstruments"
+    ).innerHTML = "";
+
+    document.getElementById(
+        "monitoringResults"
+    ).innerHTML = "";
+
+}
 
         </div>
 
