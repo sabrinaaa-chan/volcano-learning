@@ -211,21 +211,17 @@ let budget = 100;
 const selectedInstruments = [];
 
 const instrumentNames = {
-
     seismo:"Seismometer",
     gps:"GPS Station",
     gas:"Gas Sensor",
     thermal:"Thermal Camera",
     satellite:"Satellite Observation"
-
 };
 
 function buyInstrument(type,cost){
 
     if(selectedInstruments.includes(type)){
-
         return;
-
     }
 
     if(budget < cost){
@@ -251,12 +247,9 @@ function buyInstrument(type,cost){
     li.innerText =
         instrumentNames[type];
 
-    document
-        .getElementById(
-            "selectedInstruments"
-        )
-        .appendChild(li);
-
+    document.getElementById(
+        "selectedInstruments"
+    ).appendChild(li);
 }
 
 function analyzeVolcano(){
@@ -338,7 +331,7 @@ function analyzeVolcano(){
 
         `;
 
-    }else{
+    } else {
 
         results.innerHTML = `
 
@@ -377,7 +370,6 @@ function analyzeVolcano(){
         </div>
 
         `;
-
     }
 
     const btn =
@@ -386,10 +378,7 @@ function analyzeVolcano(){
         );
 
     if(btn){
-
-        btn.style.display =
-            "none";
-
+        btn.style.display = "none";
     }
 
 }
@@ -418,20 +407,11 @@ function restartMonitoringGame(){
         );
 
     if(btn){
-
         btn.style.display =
             "inline-block";
-
     }
 
 }
-        </div>
-
-        `;
-    }
-
-}
-
 
 /* =====================================
    CHAPTER 3
