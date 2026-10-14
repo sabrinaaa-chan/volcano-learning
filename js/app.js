@@ -739,17 +739,48 @@ document.addEventListener(
 );
 
 /* =====================================
-   CHAPTER 3 
+   CHAPTER 3
+   VOLCANO CRISIS MANAGER
 ===================================== */
+
+let pressure = 50;
+let earthquakes = 4;
+let deformation = 5;
+let temperature = 180;
+
+let missionTime = 30;
+let stabilityScore = 100;
+let missionRunning = false;
+
 let gameLoop;
+let eventLoop;
+
+/* =====================
+   START GAME
+===================== */
 
 function startMission(){
 
-    if(missionRunning) return;
+    if(missionRunning){
+        return;
+    }
 
     missionRunning = true;
 
     missionTime = 30;
+    stabilityScore = 100;
+
+    pressure = 50;
+    earthquakes = 4;
+    deformation = 5;
+    temperature = 180;
+
+    renderDashboard();
+
+    document.getElementById(
+        "eventPanel"
+    ).innerHTML =
+    "🌋 Mission started. Monitor the volcano carefully.";
 
     gameLoop = setInterval(()=>{
 
@@ -765,6 +796,7 @@ function startMission(){
         if(missionTime <= 0){
 
             clearInterval(gameLoop);
+            clearInterval(eventLoop);
 
             finishMission();
 
@@ -772,651 +804,212 @@ function startMission(){
 
     },1000);
 
+    eventLoop = setInterval(()=>{
+
+        randomEvent();
+
+    },5000);
 }
 
-function updateSystem(){
+/* =====================
+   RANDOM EVENTS
+===================== */
 
-    const magma =
-    parseInt(
-      document.getElementById(
-        "magmaSlider"
-      ).value
-    );
+function randomEvent(){
 
-    const gas =
-    parseInt(
-      document.getElementById(
-        "gasSlider"
-      ).value
-    );
+    const events = [
 
-    const conduit =
-    parseInt(
-      document.getElementById(
-        "conduitSlider"
-      ).value
-    );
+        {
+            text:"⚠️ Magma Pulse Detected",
+            pressure:15,
+            temp:20
+        },
 
-    pressure +=
-        magma * 0.15;
+        {
+            text:"⚠️ Earthquake Swarm",
+            pressure:5,
+            earthquakes:3
+        },
 
-    pressure -=
-        gas * 0.08;
+        {
+            text:"⚠️ Gas Build-Up",
+            pressure:10
+        },
 
-    pressure -=
-        conduit * 0.05;
+        {
+            text:"✅ New Surface Crack",
+            pressure:-10
+        }
 
-    pressure =
-        Math.max(
-           0,
-           Math.min(
-              100,
-              pressure
-           )
-        );
+    ];
 
-    earthquakes =
-        Math.round(
-           pressure / 12
-        );
+    const e =
+    events[
+        Math.floor(
+            Math.random()*events.length
+        )
+    ];
 
-    deformation =
-        Math.round(
-           pressure * 0.12
-        );
-
-    temperature +=
-        Math.round(
-          magma * 0.03
-        );
-
-    temperature -=
-        Math.round(
-          gas * 0.02
-        );
-
-    renderDashboard();
-
-}
-
-function updateSystem(){
-
-    const magma =
-    parseInt(
-      document.getElementById(
-        "magmaSlider"
-      ).value
-    );
-
-    const gas =
-    parseInt(
-      document.getElementById(
-        "gasSlider"
-      ).value
-    );
-
-    const conduit =
-    parseInt(
-      document.getElementById(
-        "conduitSlider"
-      ).value
-    );
-
-    pressure +=
-        magma * 0.15;
-
-    pressure -=
-        gas * 0.08;
-
-    pressure -=
-        conduit * 0.05;
-
-    pressure =
-        Math.max(
-           0,
-           Math.min(
-              100,
-              pressure
-           )
-        );
-
-    earthquakes =
-        Math.round(
-           pressure / 12
-        );
-
-    deformation =
-        Math.round(
-           pressure * 0.12
-        );
-
-    temperature +=
-        Math.round(
-          magma * 0.03
-        );
-
-    temperature -=
-        Math.round(
-          gas * 0.02
-        );
-
-    renderDashboard();
-
-}
-
-function updateVolcano(){
-
-    const magma =
-        parseInt(
-            document.getElementById(
-                "magmaSlider"
-            ).value
-        );
-
-    const gas =
-        parseInt(
-            document.getElementById(
-                "gasSlider"
-            ).value
-        );
-
-    const conduit =
-        parseInt(
-            document.getElementById(
-                "conduitSlider"
-            ).value
-        );
-
-    let pressure =
-        magma
-        - (gas * 0.3)
-        - (conduit * 0.2);
-
-    pressure =
-        Math.max(
-            0,
-            Math.min(
-              100,
-              Math.round(pressure)
-            )
-        );
+    pressure += e.pressure || 0;
+    earthquakes += e.earthquakes || 0;
+    temperature += e.temp || 0;
 
     document.getElementById(
-        "pressureValue"
-    ).innerText = pressure;
-
-    let earthquakes = "";
-    let deformation = "";
-    let status = "";
-    let message = "";
-
-    if(pressure < 30){
-
-        earthquakes = "Low";
-
-        deformation = "Minimal";
-
-        status = "🟢 Stable";
-
-        message = `
-        <div class="result-success">
-
-            <h4>
-            ✅ Stable Volcano
-            </h4>
-
-            <p>
-            Gas escapes efficiently and pressure remains low.
-            Negative feedback helps stabilize the system.
-            </p>
-
-        </div>
-        `;
-
-    }
-
-    else if(pressure < 70){
-
-        earthquakes =
-            "Moderate";
-
-        deformation =
-            "Moderate";
-
-        status =
-            "🟡 Elevated";
-
-        message = `
-        <div class="result-warning">
-
-            <h4>
-            ⚠️ Elevated Activity
-            </h4>
-
-            <p>
-            Pressure is building.
-            Scientists would closely monitor
-            additional signals.
-            </p>
-
-        </div>
-        `;
-
-    }
-
-    else{
-
-        earthquakes =
-            "High";
-
-        deformation =
-            "Strong";
-
-        status =
-            "🔴 Unrest";
-
-        message = `
-        <div class="result-warning">
-
-            <h4>
-            🌋 Significant Unrest
-            </h4>
-
-            <p>
-            High magma supply combined with
-            insufficient gas release causes
-            pressure to build rapidly.
-            </p>
-
-            <p>
-            Earthquakes and deformation
-            increase significantly.
-            </p>
-
-        </div>
-        `;
-
-    }
-
-    document.getElementById(
-        "earthquakeValue"
-    ).innerText =
-        earthquakes;
-
-    document.getElementById(
-        "deformationValue"
-    ).innerText =
-        deformation;
-
-    document.getElementById(
-        "statusValue"
-    ).innerText =
-        status;
-
-    document.getElementById(
-        "pressureMessage"
+        "eventPanel"
     ).innerHTML =
-        message;
+    e.text;
 }
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+/* =====================
+   SYSTEM UPDATE
+===================== */
 
-        if(
-            document.getElementById(
-                "magmaSlider"
-            )
-        ){
-
-            updateVolcano();
-
-        }
-
-    }
-);
-let missionTime = 30;
-let stabilityScore = 100;
-let missionRunning = false;
-
-function startMission(){
-
-    if(missionRunning) return;
-
-    missionRunning = true;
-
-    const timer = setInterval(()=>{
-
-        missionTime--;
-
-        document.getElementById(
-            "missionTimer"
-        ).innerText =
-            missionTime;
-
-        if(missionTime <= 0){
-
-            clearInterval(timer);
-
-            finishMission();
-
-        }
-
-    },1000);
-
-    const events = [
-
-        "⚠️ Magma pulse detected (+15 pressure)",
-
-        "⚠️ Gas trapped beneath conduit (+10 pressure)",
-
-        "⚠️ New earthquake swarm detected",
-
-        "✅ Gas release increased naturally",
-
-        "✅ Surface vent reopened"
-
-    ];
-
-    setInterval(()=>{
-
-        const event =
-            events[
-                Math.floor(
-                    Math.random()
-                    *
-                    events.length
-                )
-            ];
-
-        document.getElementById(
-            "eventPanel"
-        ).innerText =
-            event;
-
-    },5000);
-
-}
-let missionTime = 30;
-let stabilityScore = 100;
-let missionRunning = false;
-
-function startMission(){
-
-    if(missionRunning){
-        return;
-    }
-
-    missionRunning = true;
-
-    missionTime = 30;
-    stabilityScore = 100;
-
-    updateVolcano();
-
-    const timer = setInterval(()=>{
-
-        missionTime--;
-
-        document.getElementById(
-            "missionTimer"
-        ).innerText =
-            missionTime;
-
-        if(missionTime <= 0){
-
-            clearInterval(timer);
-
-            finishMission();
-
-        }
-
-    },1000);
-
-    const events = [
-
-        "⚠️ New magma pulse detected",
-
-        "⚠️ Conduit partially blocked",
-
-        "⚠️ Earthquake swarm detected",
-
-        "✅ Gas release increased",
-
-        "✅ New fracture allows gas escape"
-
-    ];
-
-    const eventLoop = setInterval(()=>{
-
-        if(!missionRunning){
-
-            clearInterval(
-                eventLoop
-            );
-
-            return;
-        }
-
-        const event =
-
-            events[
-                Math.floor(
-                    Math.random()
-                    *
-                    events.length
-                )
-            ];
-
-        document.getElementById(
-            "eventPanel"
-        ).innerText =
-            event;
-
-    },5000);
-
-}
-
-function updateVolcano(){
+function updateSystem(){
 
     const magma =
-        parseInt(
-            document.getElementById(
-                "magmaSlider"
-            ).value
-        );
+    parseInt(
+        document.getElementById(
+            "magmaSlider"
+        ).value
+    );
 
     const gas =
-        parseInt(
-            document.getElementById(
-                "gasSlider"
-            ).value
-        );
+    parseInt(
+        document.getElementById(
+            "gasSlider"
+        ).value
+    );
 
     const conduit =
-        parseInt(
-            document.getElementById(
-                "conduitSlider"
-            ).value
-        );
+    parseInt(
+        document.getElementById(
+            "conduitSlider"
+        ).value
+    );
 
-    let pressure =
-
-        magma
-        -
-        (gas * 0.3)
-        -
-        (conduit * 0.2);
+    pressure += magma*0.15;
+    pressure -= gas*0.08;
+    pressure -= conduit*0.05;
 
     pressure =
+    Math.max(
+        0,
+        Math.min(100,pressure)
+    );
 
-        Math.max(
-            0,
-            Math.min(
-                100,
-                Math.round(
-                    pressure
-                )
-            )
+    earthquakes =
+    Math.max(
+        0,
+        Math.round(pressure/12)
+    );
+
+    deformation =
+    Math.max(
+        0,
+        Math.round(pressure*0.12)
+    );
+
+    temperature +=
+        Math.round(
+            magma*0.05
         );
 
-    const earthquakes =
-        Math.round(
-            pressure / 10
-        );
+    renderDashboard();
 
-    const deformation =
-        Math.round(
-            pressure * 0.15
-        );
+}
 
-    const temperature =
-        90 +
-        Math.round(
-            magma * 0.8
-        ) +
-        Math.round(
-            pressure * 0.4
-        );
+/* =====================
+   DASHBOARD
+===================== */
 
-    const gasOutput =
-        Math.round(
-            gas * 0.8
-        );
+function renderDashboard(){
 
     document.getElementById(
         "pressureValue"
     ).innerText =
-        pressure;
+    Math.round(pressure);
 
     document.getElementById(
         "earthquakeValue"
     ).innerText =
-        earthquakes +
-        " events/hr";
+    earthquakes +
+    " events/hr";
 
     document.getElementById(
         "deformationValue"
     ).innerText =
-        deformation +
-        " cm uplift";
+    deformation +
+    " cm uplift";
 
     document.getElementById(
         "temperatureValue"
     ).innerText =
-        temperature +
-        "°C";
+    Math.round(temperature) +
+    "°C";
+
+    if(
+        pressure >=30 &&
+        pressure <=60
+    ){
+
+        stabilityScore += 1;
+
+    }else{
+
+        stabilityScore -= 2;
+
+    }
+
+    stabilityScore =
+    Math.max(
+        0,
+        stabilityScore
+    );
 
     document.getElementById(
-        "gasValue"
+        "scoreValue"
     ).innerText =
-        gasOutput +
-        " units";
+    stabilityScore;
 
-    document.getElementById(
-        "pressureFill"
-    ).style.width =
-        pressure + "%";
-
-    let status = "";
-
-    let interpretation = "";
-
-    if(pressure < 30){
-
-        status = "🟢 Stable";
-
-        interpretation =
-            "Gas escapes efficiently. Negative feedback helps stabilize the volcano.";
-
-        document.getElementById(
-            "pressureFill"
-        ).style.background =
-            "green";
-
-    }
-
-    else if(pressure < 70){
-
-        status =
-            "🟡 Elevated";
-
-        interpretation =
-            "Pressure is increasing. Scientists would monitor the volcano closely.";
-
-        document.getElementById(
-            "pressureFill"
-        ).style.background =
-            "gold";
-
-    }
-
-    else{
-
-        status =
-            "🔴 Significant Unrest";
-
-        interpretation =
-            "Pressure is very high. Earthquakes and ground deformation increase rapidly.";
-
-        document.getElementById(
-            "pressureFill"
-        ).style.background =
-            "red";
-
-    }
-
-    document.getElementById(
-        "statusValue"
-    ).innerText =
-        status;
-
-    document.getElementById(
-        "pressureMessage"
-    ).innerHTML = `
-
-        <div class="concept-box">
-
-            <strong>
-            Observatory Interpretation
-            </strong>
-
-            <p>
-            ${interpretation}
-            </p>
-
-        </div>
-
-    `;
-
-    if(missionRunning){
-
-        if(
-            pressure >= 30 &&
-            pressure <= 60
-        ){
-
-            stabilityScore++;
-
-        }
-        else{
-
-            stabilityScore -= 2;
-
-        }
-
-        stabilityScore =
-            Math.max(
-                0,
-                stabilityScore
-            );
-
-        document.getElementById(
-            "scoreValue"
-        ).innerText =
-            stabilityScore;
-    }
 }
+
+/* =====================
+   CONTROL BUTTONS
+===================== */
+
+function injectCooling(){
+
+    temperature -= 25;
+
+    pressure -= 5;
+
+    renderDashboard();
+
+}
+
+function emergencyVenting(){
+
+    pressure -= 15;
+
+    earthquakes += 2;
+
+    renderDashboard();
+
+}
+
+function sealFractures(){
+
+    earthquakes -= 2;
+
+    pressure += 10;
+
+    renderDashboard();
+
+}
+
+/* =====================
+   FINISH GAME
+===================== */
 
 function finishMission(){
 
@@ -1424,59 +1017,60 @@ function finishMission(){
 
     let result = "";
 
-    if(stabilityScore >= 90){
+    if(
+        pressure < 70 &&
+        earthquakes < 8 &&
+        deformation < 12 &&
+        temperature < 260
+    ){
 
         result = `
-
         <div class="success-box">
 
             <h4>
-                🎉 Mission Success
+            🎉 Volcano Stabilized
             </h4>
 
             <p>
-                Final Score:
-                ${stabilityScore}
+            Final Score:
+            ${stabilityScore}
             </p>
 
             <p>
-                You maintained a stable volcanic system and prevented excessive pressure build-up.
+            Excellent work. You balanced the monitoring indicators successfully.
             </p>
 
         </div>
-
         `;
 
     }
     else{
 
         result = `
-
         <div class="warning-box2">
 
             <h4>
-                🌋 Significant Unrest
+            🌋 Significant Unrest
             </h4>
 
             <p>
-                Final Score:
-                ${stabilityScore}
+            Final Score:
+            ${stabilityScore}
             </p>
 
             <p>
-                Pressure remained too high for too long, producing unrest conditions.
+            At least one monitoring signal exceeded safe limits.
             </p>
 
         </div>
-
         `;
-
     }
 
     document.getElementById(
         "pressureMessage"
     ).innerHTML =
-        result;
+    result;
+
 }
 
 document.addEventListener(
@@ -1489,13 +1083,14 @@ document.addEventListener(
             )
         ){
 
-            updateVolcano();
+            renderDashboard();
 
         }
 
     }
 );
-/* ==========================
+
+==========================
    CHAPTER 4
    SCENARIO DETECTIVE
 ========================== */
