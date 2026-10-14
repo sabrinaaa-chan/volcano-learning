@@ -578,46 +578,59 @@ document.addEventListener(
 
 /* ==========================
    CHAPTER 4
-   SCENARIO DETECTIVE
+   FORECASTING & UNCERTAINTY
 ========================== */
 
 const scenarios = [
+
 {
     title:"Scenario 1",
+
     answer:"background",
+
     data:[
         "⚡ Earthquakes: Low",
         "🌋 Gas Emissions: Normal",
         "📏 Ground Deformation: Stable",
         "🌡 Temperature: Normal"
     ],
+
     explanation:
-    "These observations suggest background activity. Small changes are normal at many volcanoes."
+    "These observations suggest normal background activity."
 },
+
 {
     title:"Scenario 2",
+
     answer:"elevated",
+
     data:[
         "⚡ Earthquakes: Increasing",
-        "🌋 Gas Emissions: Slightly Elevated",
-        "📏 Ground Deformation: Moderate",
-        "🌡 Temperature: Elevated"
+        "🌋 Gas Emissions: Elevated",
+        "📏 Ground Inflation: Moderate",
+        "🌡 Temperature: Increasing"
     ],
+
     explanation:
-    "Multiple monitoring signals are changing. Scientists would increase monitoring and investigation."
+    "Multiple monitoring signals suggest increasing unrest."
 },
+
 {
     title:"Scenario 3",
+
     answer:"unrest",
+
     data:[
-        "⚡ Earthquakes: Frequent",
-        "🌋 Gas Emissions: High",
-        "📏 Ground Deformation: Rapid",
+        "⚡ Frequent Earthquake Swarms",
+        "🌋 High Gas Emissions",
+        "📏 Rapid Ground Deformation",
         "🌡 Strong Thermal Anomaly"
     ],
+
     explanation:
-    "Several indicators show significant unrest. Scientists would closely monitor the volcano."
+    "Several indicators point toward significant volcanic unrest."
 }
+
 ];
 
 let currentScenario = 0;
@@ -626,18 +639,21 @@ let scenarioAnswered = false;
 
 function loadScenario(){
 
-    const s = scenarios[currentScenario];
+    const s =
+        scenarios[currentScenario];
 
     document.getElementById(
         "scenarioTitle"
-    ).innerText = s.title;
+    ).innerText =
+        s.title;
 
     document.getElementById(
         "scenarioData"
     ).innerHTML =
-    s.data.map(
-        item => `<li>${item}</li>`
-    ).join("");
+        s.data.map(
+            item =>
+            `<li>${item}</li>`
+        ).join("");
 
 }
 
@@ -649,7 +665,8 @@ function checkScenario(choice){
 
     scenarioAnswered = true;
 
-    const s = scenarios[currentScenario];
+    const s =
+        scenarios[currentScenario];
 
     const feedback =
         document.getElementById(
@@ -663,9 +680,10 @@ function checkScenario(choice){
         document.getElementById(
             "scenarioScore"
         ).innerText =
-        scenarioScore;
+            scenarioScore;
 
-        feedback.innerHTML = `
+        feedback.innerHTML =
+        `
         <div class="result-success">
 
             <h4>
@@ -677,7 +695,7 @@ function checkScenario(choice){
             </p>
 
             <button onclick="nextScenario()">
-            Next Scenario →
+                Next Scenario →
             </button>
 
         </div>
@@ -686,7 +704,8 @@ function checkScenario(choice){
     }
     else{
 
-        feedback.innerHTML = `
+        feedback.innerHTML =
+        `
         <div class="result-warning">
 
             <h4>
@@ -697,8 +716,13 @@ function checkScenario(choice){
             ${s.explanation}
             </p>
 
+            <p>
+            Forecasts require interpretation of multiple signals.
+            No single observation provides certainty.
+            </p>
+
             <button onclick="nextScenario()">
-            Next Scenario →
+                Next Scenario →
             </button>
 
         </div>
@@ -734,68 +758,58 @@ function finishScenarioGame(){
 
     document.getElementById(
         "scenarioCard"
-    ).innerHTML = `
+    ).innerHTML =
+    `
+        <h3>
+            🎉 Forecasting Challenge Complete
+        </h3>
 
-    <h3>
-        🎉 Scenario Detective Complete
-    </h3>
+        <p>
+            Final Score:
+            <strong>
+                ${scenarioScore}/3
+            </strong>
+        </p>
 
-    <p>
-        Final Score:
-        <strong>
-        ${scenarioScore}/3
-        </strong>
-    </p>
+        <p>
+            Scientists combine multiple observations,
+            expert interpretation and uncertainty
+            when assessing volcanic activity.
+        </p>
 
-    <p>
-        Scientists compare multiple monitoring signals together.
-    </p>
+        <p>
+            Forecasts communicate changing
+            probabilities rather than exact dates.
+        </p>
 
-    <p>
-        No single observation guarantees an eruption.
-    </p>
-
-    <button onclick="restartScenarioGame()">
-        🔄 Play Again
-    </button>
-
+        <button onclick="restartScenarioGame()">
+            🔄 Play Again
+        </button>
     `;
 
-    const buttons =
-        document.querySelector(
-            ".scenario-buttons"
-        );
-
-    if(buttons){
-
-        buttons.style.display =
+    document.querySelector(
+        ".scenario-buttons"
+    ).style.display =
         "none";
-
-    }
 
 }
 
 function restartScenarioGame(){
 
     currentScenario = 0;
+
     scenarioScore = 0;
+
     scenarioAnswered = false;
 
     document.getElementById(
         "scenarioScore"
     ).innerText = "0";
 
-    const buttons =
-        document.querySelector(
-            ".scenario-buttons"
-        );
-
-    if(buttons){
-
-        buttons.style.display =
+    document.querySelector(
+        ".scenario-buttons"
+    ).style.display =
         "flex";
-
-    }
 
     document.getElementById(
         "scenarioFeedback"
