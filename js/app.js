@@ -269,43 +269,33 @@ function analyzeVolcano(){
     let signals = [];
 
     if(selectedInstruments.includes("seismo")){
-
         signals.push(
-          "Increasing earthquake activity detected."
+            "Increasing earthquake activity detected."
         );
-
     }
 
     if(selectedInstruments.includes("gps")){
-
         signals.push(
-          "Ground uplift detected."
+            "Ground uplift detected."
         );
-
     }
 
     if(selectedInstruments.includes("gas")){
-
         signals.push(
-          "Volcanic gas emissions elevated."
+            "Volcanic gas emissions elevated."
         );
-
     }
 
     if(selectedInstruments.includes("thermal")){
-
         signals.push(
-          "Surface temperatures increasing."
+            "Surface temperatures increasing."
         );
-
     }
 
     if(selectedInstruments.includes("satellite")){
-
         signals.push(
-          "Satellite confirms regional changes."
+            "Satellite confirms regional changes."
         );
-
     }
 
     if(selectedInstruments.length >= 3){
@@ -324,7 +314,7 @@ function analyzeVolcano(){
 
             <ul>
                 ${signals.map(
-                    s=>`<li>${s}</li>`
+                    s => `<li>${s}</li>`
                 ).join("")}
             </ul>
 
@@ -335,18 +325,19 @@ function analyzeVolcano(){
             </p>
 
             <strong>
-Confidence Level: High
-</strong>
+            Confidence Level: High
+            </strong>
 
-<br><br>
+            <br><br>
 
-<button onclick="restartMonitoringGame()">
-    🔄 Play Again
-</button>
+            <button onclick="restartMonitoringGame()">
+                🔄 Play Again
+            </button>
 
         </div>
 
         `;
+
     }
     else{
 
@@ -364,23 +355,33 @@ Confidence Level: High
 
             <ul>
                 ${signals.map(
-                    s=>`<li>${s}</li>`
+                    s => `<li>${s}</li>`
                 ).join("")}
             </ul>
 
             <p>
-            One or two instruments provide useful
-            information, but scientists usually
-            need multiple monitoring methods to
-            understand volcanic activity.
+            One or two instruments provide useful information,
+            but scientists usually need multiple monitoring methods
+            to understand volcanic activity.
             </p>
+
+            <strong>
+            Confidence Level: Low
+            </strong>
 
             <br><br>
 
-<button onclick="restartMonitoringGame()">
-    🔄 Play Again
-</button>
+            <button onclick="restartMonitoringGame()">
+                🔄 Play Again
+            </button>
 
+        </div>
+
+        `;
+
+    }
+
+}
 function restartMonitoringGame(){
 
     budget = 100;
