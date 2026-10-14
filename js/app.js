@@ -379,85 +379,6 @@ function analyzeVolcano(){
     }
 
 }
-let missionTime = 30;
-let stabilityScore = 100;
-let missionRunning = false;
-
-function startMission(){
-
-    if(missionRunning){
-        return;
-    }
-
-    missionRunning = true;
-
-    missionTime = 30;
-    stabilityScore = 100;
-
-    updateVolcano();
-
-    const timer = setInterval(()=>{
-
-        missionTime--;
-
-        document.getElementById(
-            "missionTimer"
-        ).innerText =
-            missionTime;
-
-        if(missionTime <= 0){
-
-            clearInterval(timer);
-
-            finishMission();
-
-        }
-
-    },1000);
-
-    const events = [
-
-        "⚠️ New magma pulse detected",
-
-        "⚠️ Conduit partially blocked",
-
-        "⚠️ Earthquake swarm detected",
-
-        "✅ Gas release increased",
-
-        "✅ New fracture allows gas escape"
-
-    ];
-
-    const eventLoop = setInterval(()=>{
-
-        if(!missionRunning){
-
-            clearInterval(
-                eventLoop
-            );
-
-            return;
-        }
-
-        const event =
-
-            events[
-                Math.floor(
-                    Math.random()
-                    *
-                    events.length
-                )
-            ];
-
-        document.getElementById(
-            "eventPanel"
-        ).innerText =
-            event;
-
-    },5000);
-
-}
 
 function updateVolcano(){
 
@@ -784,15 +705,36 @@ function startMission(){
 
     gameLoop = setInterval(()=>{
 
-        missionTime--;
+    missionTime--;
 
+    const timer =
         document.getElementById(
             "missionTimer"
-        ).innerText =
-        missionTime;
+        );
+
+    if(timer){
+
+        timer.innerText =
+            missionTime;
+
+    }
+
+    try{
 
         updateSystem();
 
+    }
+    catch(error){
+
+        console.error(
+            error
+        );
+
+        clearInterval(
+            gameLoop
+        );
+
+    }
         if(missionTime <= 0){
 
             clearInterval(gameLoop);
