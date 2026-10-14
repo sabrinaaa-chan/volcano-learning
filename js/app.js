@@ -532,51 +532,109 @@ function randomEvent(){
 function updateSystem(){
 
     const magma =
-    parseInt(
-        document.getElementById(
-            "magmaSlider"
-        ).value
-    );
+        parseInt(
+            document.getElementById(
+                "magmaSlider"
+            ).value
+        );
 
     const gas =
-    parseInt(
-        document.getElementById(
-            "gasSlider"
-        ).value
-    );
+        parseInt(
+            document.getElementById(
+                "gasSlider"
+            ).value
+        );
 
     const conduit =
-    parseInt(
-        document.getElementById(
-            "conduitSlider"
-        ).value
-    );
+        parseInt(
+            document.getElementById(
+                "conduitSlider"
+            ).value
+        );
 
-    pressure += magma*0.15;
-    pressure -= gas*0.08;
-    pressure -= conduit*0.05;
+    const pressureControl =
+        parseInt(
+            document.getElementById(
+                "pressureControl"
+            ).value
+        );
+
+    const temperatureControl =
+        parseInt(
+            document.getElementById(
+                "temperatureControl"
+            ).value
+        );
+
+    const earthquakeControl =
+        parseInt(
+            document.getElementById(
+                "earthquakeControl"
+            ).value
+        );
+
+    const deformationControl =
+        parseInt(
+            document.getElementById(
+                "deformationControl"
+            ).value
+        );
+
+    pressure +=
+        (magma * 0.15);
+
+    pressure -=
+        (gas * 0.08);
+
+    pressure -=
+        (conduit * 0.05);
+
+    pressure -=
+        (pressureControl * 0.05);
 
     pressure =
-    Math.max(
-        0,
-        Math.min(100,pressure)
-    );
+        Math.max(
+            0,
+            Math.min(100,pressure)
+        );
 
     earthquakes =
-    Math.max(
-        0,
-        Math.round(pressure/12)
-    );
+        Math.round(
+            pressure / 10
+        );
+
+    earthquakes -=
+        Math.round(
+            earthquakeControl / 20
+        );
+
+    earthquakes =
+        Math.max(0,earthquakes);
 
     deformation =
-    Math.max(
-        0,
-        Math.round(pressure*0.12)
-    );
+        Math.round(
+            pressure * 0.12
+        );
+
+    deformation -=
+        Math.round(
+            deformationControl / 15
+        );
+
+    deformation =
+        Math.max(
+            0,
+            deformation
+        );
 
     temperature +=
         Math.round(
-            magma*0.05
+            magma * 0.05
+        );
+
+    temperature -=
+        Math.round(
+            temperatureControl * 0.2
         );
 
     renderDashboard();
@@ -586,89 +644,79 @@ function updateSystem(){
 /* =====================
    DASHBOARD
 ===================== */
-
 function renderDashboard(){
 
     document.getElementById(
         "pressureValue"
     ).innerText =
-    Math.round(pressure);
+        Math.round(pressure);
 
     document.getElementById(
         "earthquakeValue"
     ).innerText =
-    earthquakes +
-    " events/hr";
+        earthquakes +
+        " events/hr";
 
     document.getElementById(
         "deformationValue"
     ).innerText =
-    deformation +
-    " cm uplift";
+        deformation +
+        " cm uplift";
 
     document.getElementById(
         "temperatureValue"
     ).innerText =
-    Math.round(temperature) +
-    "°C";
+        Math.round(
+            temperature
+        ) + "°C";
+
+    let status = "";
 
     if(
-        pressure >=30 &&
-        pressure <=60
+        pressure < 40 &&
+        earthquakes < 5 &&
+        deformation < 8 &&
+        temperature < 220
     ){
 
-        stabilityScore += 1;
+        status =
+        "🟢 Stable";
 
-    }else{
+        stabilityScore++;
+
+    }
+    else if(
+        pressure < 70
+    ){
+
+        status =
+        "🟡 Elevated";
+
+    }
+    else{
+
+        status =
+        "🔴 Significant Unrest";
 
         stabilityScore -= 2;
 
     }
 
     stabilityScore =
-    Math.max(
-        0,
-        stabilityScore
-    );
+        Math.max(
+            0,
+            stabilityScore
+        );
 
     document.getElementById(
         "scoreValue"
     ).innerText =
-    stabilityScore;
+        stabilityScore;
 
-}
-
-/* =====================
-   CONTROL BUTTONS
-===================== */
-
-function injectCooling(){
-
-    temperature -= 25;
-
-    pressure -= 5;
-
-    renderDashboard();
-
-}
-
-function emergencyVenting(){
-
-    pressure -= 15;
-
-    earthquakes += 2;
-
-    renderDashboard();
-
-}
-
-function sealFractures(){
-
-    earthquakes -= 2;
-
-    pressure += 10;
-
-    renderDashboard();
+    document.getElementById(
+        "statusValue"
+    ).innerText =
+        status;
 
 }
 
