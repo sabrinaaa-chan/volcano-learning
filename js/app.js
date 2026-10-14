@@ -741,6 +741,169 @@ document.addEventListener(
 /* =====================================
    CHAPTER 3 
 ===================================== */
+let gameLoop;
+
+function startMission(){
+
+    if(missionRunning) return;
+
+    missionRunning = true;
+
+    missionTime = 30;
+
+    gameLoop = setInterval(()=>{
+
+        missionTime--;
+
+        document.getElementById(
+            "missionTimer"
+        ).innerText =
+        missionTime;
+
+        updateSystem();
+
+        if(missionTime <= 0){
+
+            clearInterval(gameLoop);
+
+            finishMission();
+
+        }
+
+    },1000);
+
+}
+
+function updateSystem(){
+
+    const magma =
+    parseInt(
+      document.getElementById(
+        "magmaSlider"
+      ).value
+    );
+
+    const gas =
+    parseInt(
+      document.getElementById(
+        "gasSlider"
+      ).value
+    );
+
+    const conduit =
+    parseInt(
+      document.getElementById(
+        "conduitSlider"
+      ).value
+    );
+
+    pressure +=
+        magma * 0.15;
+
+    pressure -=
+        gas * 0.08;
+
+    pressure -=
+        conduit * 0.05;
+
+    pressure =
+        Math.max(
+           0,
+           Math.min(
+              100,
+              pressure
+           )
+        );
+
+    earthquakes =
+        Math.round(
+           pressure / 12
+        );
+
+    deformation =
+        Math.round(
+           pressure * 0.12
+        );
+
+    temperature +=
+        Math.round(
+          magma * 0.03
+        );
+
+    temperature -=
+        Math.round(
+          gas * 0.02
+        );
+
+    renderDashboard();
+
+}
+
+function updateSystem(){
+
+    const magma =
+    parseInt(
+      document.getElementById(
+        "magmaSlider"
+      ).value
+    );
+
+    const gas =
+    parseInt(
+      document.getElementById(
+        "gasSlider"
+      ).value
+    );
+
+    const conduit =
+    parseInt(
+      document.getElementById(
+        "conduitSlider"
+      ).value
+    );
+
+    pressure +=
+        magma * 0.15;
+
+    pressure -=
+        gas * 0.08;
+
+    pressure -=
+        conduit * 0.05;
+
+    pressure =
+        Math.max(
+           0,
+           Math.min(
+              100,
+              pressure
+           )
+        );
+
+    earthquakes =
+        Math.round(
+           pressure / 12
+        );
+
+    deformation =
+        Math.round(
+           pressure * 0.12
+        );
+
+    temperature +=
+        Math.round(
+          magma * 0.03
+        );
+
+    temperature -=
+        Math.round(
+          gas * 0.02
+        );
+
+    renderDashboard();
+
+}
+
 function updateVolcano(){
 
     const magma =
