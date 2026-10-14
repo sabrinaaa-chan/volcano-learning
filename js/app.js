@@ -652,7 +652,7 @@ function loadScenario(){
     if(!title || !data){
 
         console.error(
-            "Scenario elements missing"
+            "Scenario elements not found"
         );
 
         return;
@@ -790,9 +790,9 @@ function finishScenarioGame(){
         </p>
 
         <p>
-            Scientists combine observations,
-            interpretation and uncertainty
-            when forecasting volcanic activity.
+            Scientists combine multiple observations,
+            expert interpretation and uncertainty
+            when assessing volcanic activity.
         </p>
 
         <p>
@@ -823,14 +823,15 @@ function finishScenarioGame(){
 function restartScenarioGame(){
 
     currentScenario = 0;
+
     scenarioScore = 0;
+
     scenarioAnswered = false;
 
     document.getElementById(
         "scenarioScore"
-    ).innerText = "0";
-
-    /* rebuild scenario card */
+    ).innerText =
+        "0";
 
     document.getElementById(
         "scenarioCard"
@@ -844,13 +845,10 @@ function restartScenarioGame(){
 
     `;
 
-    /* clear feedback */
-
     document.getElementById(
         "scenarioFeedback"
-    ).innerHTML = "";
-
-    /* show buttons again */
+    ).innerHTML =
+        "";
 
     const buttons =
         document.querySelector(
@@ -864,25 +862,6 @@ function restartScenarioGame(){
 
     }
 
-    /* load first scenario */
-
     loadScenario();
 
 }
-
-document.addEventListener(
-    "DOMContentLoaded",
-    ()=>{
-
-        if(
-            document.getElementById(
-                "scenarioCard"
-            )
-        ){
-
-            loadScenario();
-
-        }
-
-    }
-);
