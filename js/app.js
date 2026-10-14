@@ -302,6 +302,18 @@ function analyzeVolcano(){
 
         results.innerHTML = `
 
+        const btn =
+document.getElementById(
+    "analyzeBtn"
+);
+
+if(btn){
+
+    btn.style.display =
+    "none";
+
+}
+
         <div class="result-success">
 
             <h4>
@@ -339,52 +351,47 @@ function analyzeVolcano(){
         `;
 
     }
-    else{
+   else{
 
-        results.innerHTML = `
+    results.innerHTML = `
 
-        <div class="result-warning">
+    <div class="result-warning">
 
-            <h4>
-            ⚠️ Limited Monitoring Information
-            </h4>
+        <h4>
+        ⚠️ Limited Monitoring Information
+        </h4>
 
-            <p>
-            Observations collected:
-            </p>
+        <p>
+        Observations collected:
+        </p>
 
-            <ul>
-                ${signals.map(
-                    s => `<li>${s}</li>`
-                ).join("")}
-            </ul>
+        <ul>
+            ${signals.map(
+                s => `<li>${s}</li>`
+            ).join("")}
+        </ul>
 
-            <p>
-            One or two instruments provide useful information,
-            but scientists usually need multiple monitoring methods
-            to understand volcanic activity.
-            </p>
+        <p>
+        One or two instruments provide useful information,
+        but scientists usually need multiple monitoring methods
+        to understand volcanic activity.
+        </p>
 
-            <strong>
-            Confidence Level: Low
-            </strong>
+        <strong>
+        Confidence Level: Low
+        </strong>
 
-            <br><br>
+        <br><br>
 
-            <button onclick="restartMonitoringGame()">
-                🔄 Play Again
-            </button>
-            
-document.getElementById(
-    "analyzeBtn"
-).style.display = "none";
-        </div>
+        <button onclick="restartMonitoringGame()">
+            🔄 Play Again
+        </button>
 
-        `;
+    </div>
 
-    }
-
+    `;
 }
+   
 function restartMonitoringGame(){
 
     budget = 100;
@@ -402,11 +409,19 @@ function restartMonitoringGame(){
     document.getElementById(
         "monitoringResults"
     ).innerHTML = "";
-   
-document.getElementById(
-    "analyzeBtn"
-).style.display = "inline-block";
-   
+
+    const btn =
+    document.getElementById(
+        "analyzeBtn"
+    );
+
+    if(btn){
+
+        btn.style.display =
+        "inline-block";
+
+    }
+
 }
 
         </div>
