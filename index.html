@@ -833,54 +833,11 @@
 
    <div class="game">
 
-    <h3>🌋 Pressure Controller</h3>
+    <h3>🌋 Volcano Stability Challenge</h3>
 
     <p>
-        Keep the volcano stable while monitoring multiple signals.
+        Adjust volcanic processes and see how they affect monitoring signals.
     </p>
-
-    <label>Pressure Control</label>
-
-<input
-type="range"
-id="pressureControl"
-min="0"
-max="100"
-value="50"
-oninput="updateSystem()">
-
-<label>Temperature Control</label>
-
-<input
-type="range"
-id="temperatureControl"
-min="0"
-max="100"
-value="50"
-oninput="updateSystem()">
-
-<label>Earthquake Mitigation</label>
-
-<input
-type="range"
-id="earthquakeControl"
-min="0"
-max="100"
-value="50"
-oninput="updateSystem()">
-
-<label>Ground Deformation Control</label>
-
-<input
-type="range"
-id="deformationControl"
-min="0"
-max="100"
-value="50"
-oninput="updateSystem()">
-    <button onclick="startMission()">
-        Start Mission
-    </button>
 
     <div class="pressure-dashboard">
 
@@ -894,7 +851,7 @@ oninput="updateSystem()">
                 min="0"
                 max="100"
                 value="50"
-                oninput="updateVolcano()">
+                oninput="updateSystem()">
 
             <label>Gas Release</label>
 
@@ -904,7 +861,7 @@ oninput="updateSystem()">
                 min="0"
                 max="100"
                 value="50"
-                oninput="updateVolcano()">
+                oninput="updateSystem()">
 
             <label>Conduit Openness</label>
 
@@ -914,7 +871,15 @@ oninput="updateSystem()">
                 min="0"
                 max="100"
                 value="50"
-                oninput="updateVolcano()">
+                oninput="updateSystem()">
+
+            <br><br>
+
+            <button onclick="evaluateVolcano()">
+
+                Evaluate Volcano
+
+            </button>
 
         </div>
 
@@ -923,58 +888,29 @@ oninput="updateSystem()">
             <h4>Volcano Observatory Dashboard</h4>
 
             <p>
-                Mission Time:
-                <strong id="missionTimer">30</strong>s
-            </p>
-
-            <p>
-                Stability Score:
-                <strong id="scoreValue">100</strong>
-            </p>
-
-            <hr>
-
-            <p>
                 Pressure:
-                <strong id="pressureValue">50</strong>
+                <strong id="pressureValue">0</strong>
             </p>
-
-            <div class="pressure-bar">
-                <div id="pressureFill"></div>
-            </div>
 
             <p>
                 Earthquake Activity:
-                <strong id="earthquakeValue">
-                    Moderate
-                </strong>
+                <strong id="earthquakeValue">0</strong>
             </p>
 
             <p>
                 Ground Deformation:
-                <strong id="deformationValue">
-                    Moderate
-                </strong>
+                <strong id="deformationValue">0</strong>
             </p>
 
             <p>
                 Temperature:
-                <strong id="temperatureValue">
-                    170°C
-                </strong>
+                <strong id="temperatureValue">0°C</strong>
             </p>
 
             <p>
-                Gas Emissions:
-                <strong id="gasValue">
-                    Moderate
-                </strong>
-            </p>
-
-            <p>
-                System Status:
+                Status:
                 <strong id="statusValue">
-                    🟡 Elevated
+                    Not Evaluated
                 </strong>
             </p>
 
@@ -982,15 +918,10 @@ oninput="updateSystem()">
 
     </div>
 
-    <div id="eventPanel">
-
-        Awaiting volcanic updates...
-
-    </div>
-
     <div id="pressureMessage"></div>
 
 </div>
+    
 </section>
         <section id="ch4" class="chapter">
 
