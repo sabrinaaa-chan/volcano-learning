@@ -379,6 +379,364 @@ function analyzeVolcano(){
     }
 
 }
+let missionTime = 30;
+let stabilityScore = 100;
+let missionRunning = false;
+
+function startMission(){
+
+    if(missionRunning){
+        return;
+    }
+
+    missionRunning = true;
+
+    missionTime = 30;
+    stabilityScore = 100;
+
+    updateVolcano();
+
+    const timer = setInterval(()=>{
+
+        missionTime--;
+
+        document.getElementById(
+            "missionTimer"
+        ).innerText =
+            missionTime;
+
+        if(missionTime <= 0){
+
+            clearInterval(timer);
+
+            finishMission();
+
+        }
+
+    },1000);
+
+    const events = [
+
+        "⚠️ New magma pulse detected",
+
+        "⚠️ Conduit partially blocked",
+
+        "⚠️ Earthquake swarm detected",
+
+        "✅ Gas release increased",
+
+        "✅ New fracture allows gas escape"
+
+    ];
+
+    const eventLoop = setInterval(()=>{
+
+        if(!missionRunning){
+
+            clearInterval(
+                eventLoop
+            );
+
+            return;
+        }
+
+        const event =
+
+            events[
+                Math.floor(
+                    Math.random()
+                    *
+                    events.length
+                )
+            ];
+
+        document.getElementById(
+            "eventPanel"
+        ).innerText =
+            event;
+
+    },5000);
+
+}
+
+function updateVolcano(){
+
+    const magma =
+        parseInt(
+            document.getElementById(
+                "magmaSlider"
+            ).value
+        );
+
+    const gas =
+        parseInt(
+            document.getElementById(
+                "gasSlider"
+            ).value
+        );
+
+    const conduit =
+        parseInt(
+            document.getElementById(
+                "conduitSlider"
+            ).value
+        );
+
+    let pressure =
+
+        magma
+        -
+        (gas * 0.3)
+        -
+        (conduit * 0.2);
+
+    pressure =
+
+        Math.max(
+            0,
+            Math.min(
+                100,
+                Math.round(
+                    pressure
+                )
+            )
+        );
+
+    const earthquakes =
+        Math.round(
+            pressure / 10
+        );
+
+    const deformation =
+        Math.round(
+            pressure * 0.15
+        );
+
+    const temperature =
+        90 +
+        Math.round(
+            magma * 0.8
+        ) +
+        Math.round(
+            pressure * 0.4
+        );
+
+    const gasOutput =
+        Math.round(
+            gas * 0.8
+        );
+
+    document.getElementById(
+        "pressureValue"
+    ).innerText =
+        pressure;
+
+    document.getElementById(
+        "earthquakeValue"
+    ).innerText =
+        earthquakes +
+        " events/hr";
+
+    document.getElementById(
+        "deformationValue"
+    ).innerText =
+        deformation +
+        " cm uplift";
+
+    document.getElementById(
+        "temperatureValue"
+    ).innerText =
+        temperature +
+        "°C";
+
+    document.getElementById(
+        "gasValue"
+    ).innerText =
+        gasOutput +
+        " units";
+
+    document.getElementById(
+        "pressureFill"
+    ).style.width =
+        pressure + "%";
+
+    let status = "";
+
+    let interpretation = "";
+
+    if(pressure < 30){
+
+        status = "🟢 Stable";
+
+        interpretation =
+            "Gas escapes efficiently. Negative feedback helps stabilize the volcano.";
+
+        document.getElementById(
+            "pressureFill"
+        ).style.background =
+            "green";
+
+    }
+
+    else if(pressure < 70){
+
+        status =
+            "🟡 Elevated";
+
+        interpretation =
+            "Pressure is increasing. Scientists would monitor the volcano closely.";
+
+        document.getElementById(
+            "pressureFill"
+        ).style.background =
+            "gold";
+
+    }
+
+    else{
+
+        status =
+            "🔴 Significant Unrest";
+
+        interpretation =
+            "Pressure is very high. Earthquakes and ground deformation increase rapidly.";
+
+        document.getElementById(
+            "pressureFill"
+        ).style.background =
+            "red";
+
+    }
+
+    document.getElementById(
+        "statusValue"
+    ).innerText =
+        status;
+
+    document.getElementById(
+        "pressureMessage"
+    ).innerHTML = `
+
+        <div class="concept-box">
+
+            <strong>
+            Observatory Interpretation
+            </strong>
+
+            <p>
+            ${interpretation}
+            </p>
+
+        </div>
+
+    `;
+
+    if(missionRunning){
+
+        if(
+            pressure >= 30 &&
+            pressure <= 60
+        ){
+
+            stabilityScore++;
+
+        }
+        else{
+
+            stabilityScore -= 2;
+
+        }
+
+        stabilityScore =
+            Math.max(
+                0,
+                stabilityScore
+            );
+
+        document.getElementById(
+            "scoreValue"
+        ).innerText =
+            stabilityScore;
+    }
+}
+
+function finishMission(){
+
+    missionRunning = false;
+
+    let result = "";
+
+    if(stabilityScore >= 90){
+
+        result = `
+
+        <div class="success-box">
+
+            <h4>
+                🎉 Mission Success
+            </h4>
+
+            <p>
+                Final Score:
+                ${stabilityScore}
+            </p>
+
+            <p>
+                You maintained a stable volcanic system and prevented excessive pressure build-up.
+            </p>
+
+        </div>
+
+        `;
+
+    }
+    else{
+
+        result = `
+
+        <div class="warning-box2">
+
+            <h4>
+                🌋 Significant Unrest
+            </h4>
+
+            <p>
+                Final Score:
+                ${stabilityScore}
+            </p>
+
+            <p>
+                Pressure remained too high for too long, producing unrest conditions.
+            </p>
+
+        </div>
+
+        `;
+
+    }
+
+    document.getElementById(
+        "pressureMessage"
+    ).innerHTML =
+        result;
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        if(
+            document.getElementById(
+                "magmaSlider"
+            )
+        ){
+
+            updateVolcano();
+
+        }
+
+    }
+);
 
 /* =====================================
    CHAPTER 3 
@@ -616,6 +974,364 @@ function startMission(){
     },5000);
 
 }
+let missionTime = 30;
+let stabilityScore = 100;
+let missionRunning = false;
+
+function startMission(){
+
+    if(missionRunning){
+        return;
+    }
+
+    missionRunning = true;
+
+    missionTime = 30;
+    stabilityScore = 100;
+
+    updateVolcano();
+
+    const timer = setInterval(()=>{
+
+        missionTime--;
+
+        document.getElementById(
+            "missionTimer"
+        ).innerText =
+            missionTime;
+
+        if(missionTime <= 0){
+
+            clearInterval(timer);
+
+            finishMission();
+
+        }
+
+    },1000);
+
+    const events = [
+
+        "⚠️ New magma pulse detected",
+
+        "⚠️ Conduit partially blocked",
+
+        "⚠️ Earthquake swarm detected",
+
+        "✅ Gas release increased",
+
+        "✅ New fracture allows gas escape"
+
+    ];
+
+    const eventLoop = setInterval(()=>{
+
+        if(!missionRunning){
+
+            clearInterval(
+                eventLoop
+            );
+
+            return;
+        }
+
+        const event =
+
+            events[
+                Math.floor(
+                    Math.random()
+                    *
+                    events.length
+                )
+            ];
+
+        document.getElementById(
+            "eventPanel"
+        ).innerText =
+            event;
+
+    },5000);
+
+}
+
+function updateVolcano(){
+
+    const magma =
+        parseInt(
+            document.getElementById(
+                "magmaSlider"
+            ).value
+        );
+
+    const gas =
+        parseInt(
+            document.getElementById(
+                "gasSlider"
+            ).value
+        );
+
+    const conduit =
+        parseInt(
+            document.getElementById(
+                "conduitSlider"
+            ).value
+        );
+
+    let pressure =
+
+        magma
+        -
+        (gas * 0.3)
+        -
+        (conduit * 0.2);
+
+    pressure =
+
+        Math.max(
+            0,
+            Math.min(
+                100,
+                Math.round(
+                    pressure
+                )
+            )
+        );
+
+    const earthquakes =
+        Math.round(
+            pressure / 10
+        );
+
+    const deformation =
+        Math.round(
+            pressure * 0.15
+        );
+
+    const temperature =
+        90 +
+        Math.round(
+            magma * 0.8
+        ) +
+        Math.round(
+            pressure * 0.4
+        );
+
+    const gasOutput =
+        Math.round(
+            gas * 0.8
+        );
+
+    document.getElementById(
+        "pressureValue"
+    ).innerText =
+        pressure;
+
+    document.getElementById(
+        "earthquakeValue"
+    ).innerText =
+        earthquakes +
+        " events/hr";
+
+    document.getElementById(
+        "deformationValue"
+    ).innerText =
+        deformation +
+        " cm uplift";
+
+    document.getElementById(
+        "temperatureValue"
+    ).innerText =
+        temperature +
+        "°C";
+
+    document.getElementById(
+        "gasValue"
+    ).innerText =
+        gasOutput +
+        " units";
+
+    document.getElementById(
+        "pressureFill"
+    ).style.width =
+        pressure + "%";
+
+    let status = "";
+
+    let interpretation = "";
+
+    if(pressure < 30){
+
+        status = "🟢 Stable";
+
+        interpretation =
+            "Gas escapes efficiently. Negative feedback helps stabilize the volcano.";
+
+        document.getElementById(
+            "pressureFill"
+        ).style.background =
+            "green";
+
+    }
+
+    else if(pressure < 70){
+
+        status =
+            "🟡 Elevated";
+
+        interpretation =
+            "Pressure is increasing. Scientists would monitor the volcano closely.";
+
+        document.getElementById(
+            "pressureFill"
+        ).style.background =
+            "gold";
+
+    }
+
+    else{
+
+        status =
+            "🔴 Significant Unrest";
+
+        interpretation =
+            "Pressure is very high. Earthquakes and ground deformation increase rapidly.";
+
+        document.getElementById(
+            "pressureFill"
+        ).style.background =
+            "red";
+
+    }
+
+    document.getElementById(
+        "statusValue"
+    ).innerText =
+        status;
+
+    document.getElementById(
+        "pressureMessage"
+    ).innerHTML = `
+
+        <div class="concept-box">
+
+            <strong>
+            Observatory Interpretation
+            </strong>
+
+            <p>
+            ${interpretation}
+            </p>
+
+        </div>
+
+    `;
+
+    if(missionRunning){
+
+        if(
+            pressure >= 30 &&
+            pressure <= 60
+        ){
+
+            stabilityScore++;
+
+        }
+        else{
+
+            stabilityScore -= 2;
+
+        }
+
+        stabilityScore =
+            Math.max(
+                0,
+                stabilityScore
+            );
+
+        document.getElementById(
+            "scoreValue"
+        ).innerText =
+            stabilityScore;
+    }
+}
+
+function finishMission(){
+
+    missionRunning = false;
+
+    let result = "";
+
+    if(stabilityScore >= 90){
+
+        result = `
+
+        <div class="success-box">
+
+            <h4>
+                🎉 Mission Success
+            </h4>
+
+            <p>
+                Final Score:
+                ${stabilityScore}
+            </p>
+
+            <p>
+                You maintained a stable volcanic system and prevented excessive pressure build-up.
+            </p>
+
+        </div>
+
+        `;
+
+    }
+    else{
+
+        result = `
+
+        <div class="warning-box2">
+
+            <h4>
+                🌋 Significant Unrest
+            </h4>
+
+            <p>
+                Final Score:
+                ${stabilityScore}
+            </p>
+
+            <p>
+                Pressure remained too high for too long, producing unrest conditions.
+            </p>
+
+        </div>
+
+        `;
+
+    }
+
+    document.getElementById(
+        "pressureMessage"
+    ).innerHTML =
+        result;
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        if(
+            document.getElementById(
+                "magmaSlider"
+            )
+        ){
+
+            updateVolcano();
+
+        }
+
+    }
+);
 /* ==========================
    CHAPTER 4
    SCENARIO DETECTIVE
