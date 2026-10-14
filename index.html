@@ -839,21 +839,45 @@
         Keep the volcano stable while monitoring multiple signals.
     </p>
 
-    <div class="action-buttons">
+    <label>Pressure Control</label>
 
-    <button onclick="injectCooling()">
-        💧 Cooling Water
-    </button>
+<input
+type="range"
+id="pressureControl"
+min="0"
+max="100"
+value="50"
+oninput="updateSystem()">
 
-    <button onclick="emergencyVenting()">
-        🌬 Emergency Venting
-    </button>
+<label>Temperature Control</label>
 
-    <button onclick="sealFractures()">
-        🪨 Seal Fractures
-    </button>
+<input
+type="range"
+id="temperatureControl"
+min="0"
+max="100"
+value="50"
+oninput="updateSystem()">
 
-</div>
+<label>Earthquake Mitigation</label>
+
+<input
+type="range"
+id="earthquakeControl"
+min="0"
+max="100"
+value="50"
+oninput="updateSystem()">
+
+<label>Ground Deformation Control</label>
+
+<input
+type="range"
+id="deformationControl"
+min="0"
+max="100"
+value="50"
+oninput="updateSystem()">
     <button onclick="startMission()">
         Start Mission
     </button>
