@@ -389,27 +389,8 @@ iframe {
     background: #eef6f7;
     border-left: 5px solid #4A908C;
     padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-}
-
-/* Warning Box */
-
-.warning-box {
-    background: #fff4f4;
-    border-left: 5px solid #C95A49;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-}
-
-/* Key Terms */
-
-.key-terms-box {
-    background: #f4fbfb;
-    border-left: 5px solid #4A908C;
-    padding: 20px;
-    margin: 20px 0;
+    margin: 10px 0;
+    margin-top: 4px;
     border-radius: 8px;
 }
 
