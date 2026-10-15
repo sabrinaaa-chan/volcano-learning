@@ -1,4 +1,4 @@
-body {
+ {
     font-family: Arial, sans-serif;
     margin: 0;
     background: #fafafa;
@@ -412,17 +412,15 @@ iframe {
 
     border-radius:18px;
 
-    padding:30px;
+    padding:20px;
 
-    margin:60px auto 40px auto;
+    margin:40px auto;
 
-    max-width:600px; /* 60% of original */
+    max-width:800px;
 
-    width:60%;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
 
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-
-    border-top:6px solid #2c5b86;
+    border-top:5px solid #2c5b86;
 
 }
 
@@ -431,9 +429,15 @@ iframe {
 }
 
 .game-container h3{
+
     color:#2c5b86;
-    font-size:2rem;
-    margin-bottom:10px;
+
+    font-size:1.8rem;
+
+    margin-bottom:8px;
+
+    text-align:center;
+
 }
 
 .game h3{
@@ -581,11 +585,19 @@ blockquote {
 }
     
 .match-image{
-    width: 65%;
-    max-width: 850px;
-    height: auto;
-    display: block;
-    margin: 20px auto;
+
+    width:100%;
+
+    max-width:600px;
+
+    height:auto;
+
+    display:block;
+
+    margin:15px auto;
+
+    border-radius:12px;
+
 }
     
 .match-question{
@@ -619,14 +631,21 @@ blockquote {
 }
 
 .match-item{
+
     display:flex;
+
+    justify-content:space-between;
+
     align-items:center;
-    gap:10px;
-    padding:12px 18px;
+
+    padding:12px 15px;
+
     background:#f7f9fc;
+
     border:2px solid #d7e3f1;
+
     border-radius:12px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+
 }
 
 .match-item label{
@@ -636,13 +655,13 @@ blockquote {
 }
 
 .match-item select{
-    padding:8px 12px;
-    border:2px solid #7aa6c2;
+
+    width:110px;
+
+    padding:8px 10px;
+
     border-radius:8px;
-    background:white;
-    font-size:1rem;
-    cursor:pointer;
-    transition:0.3s;
+
 }
 
 .match-item select:hover{
