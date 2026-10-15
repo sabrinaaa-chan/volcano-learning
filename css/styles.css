@@ -48,28 +48,31 @@ section {
 
 .hero-section{
 
+    display:flex;
+
+    justify-content:center;
+
     padding:40px 20px;
 
 }
 
 .hero-container{
 
-    width:50%;
+    width:50% !important;
 
-    max-width:550px;
+    max-width:550px !important;
 
-    margin:40px auto;
+    margin:20px auto;
 
     background:white;
 
     border-radius:16px;
 
-    padding:25px;
+    padding:20px;
 
     text-align:center;
 
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.08);
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
 
 }
 
@@ -85,13 +88,11 @@ section {
 
 .hero-text{
 
-    max-width:700px;
-
-    margin:0 auto 30px auto;
-
     font-size:1.2rem;
 
     line-height:1.7;
+
+    margin-bottom:20px;
 
 }
 
@@ -99,9 +100,9 @@ section {
 
     width:100%;
 
-    max-width:450px;
+    max-width:450px !important;
 
-    height:260px;
+    height:260px !important;
 
     border:none;
 
@@ -117,21 +118,19 @@ section {
 
     .hero-container{
 
-        width:95%;
+        width:95% !important;
 
-        max-width:none;
-
-        padding:20px;
+        max-width:none !important;
 
     }
 
     .hero-container iframe{
 
+        max-width:none !important;
+
         width:100%;
 
-        max-width:none;
-
-        height:250px;
+        height:250px !important;
 
     }
 
