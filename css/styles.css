@@ -1021,7 +1021,11 @@ blockquote {
     font-weight:bold;
 
 }
-
+    
+.progress-panelh2{
+    margin-top:2;
+}
+    
 .game button{
 
     background:#42607A;
