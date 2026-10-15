@@ -140,6 +140,34 @@ section {
 
 }
 
+.hero-features{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:20px;
+
+}
+
+.feature-card{
+
+    background:#eef5fa;
+
+    border:2px solid #d7e3f1;
+
+    border-radius:12px;
+
+    padding:10px 15px;
+
+    font-weight:600;
+
+}
+
 @media (max-width:768px){
 
     .hero-container{
