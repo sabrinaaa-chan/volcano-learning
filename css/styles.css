@@ -143,6 +143,36 @@ color: #42607A;
 margin-bottom: 20px;
 }
 
+.chapter-photo{
+
+    width:50%;
+
+    max-width:600px;
+
+    height:auto;
+
+    display:block;
+
+    margin:25px auto;
+
+    border-radius:10px;
+
+}
+
+.chapter-diagram{
+
+    width:85%;
+
+    max-width:1000px;
+
+    height:auto;
+
+    display:block;
+
+    margin:25px auto;
+
+}
+
 /* YouTube */
 
 iframe {
