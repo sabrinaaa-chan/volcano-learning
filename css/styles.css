@@ -30,7 +30,10 @@
 
 }
 
+content-card h3{
+    margin: 4;
 {
+    
     font-family: Arial, sans-serif;
     margin: 0;
     background: #fafafa;
@@ -118,7 +121,7 @@ section {
 
     font-size:2rem;
     
-    margin-top:2;
+    margin-top:5;
     
     line-height:1.15;
 
@@ -398,7 +401,7 @@ iframe {
 .chapter-summary {
     background: #f5f7f9;
     padding: 20px;
-    margin: 20px 0;
+    margin: 10px 0;
     border-radius: 8px;
 }
 
