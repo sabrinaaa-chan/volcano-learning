@@ -242,12 +242,22 @@ iframe {
 
 /* Game Area */
 
-.game {
-    background: #eef3ff;
-    border-left: 5px solid #42607A;
-    padding: 20px;
-    margin: 25px 0;
-    border-radius: 8px;
+.game{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    margin:60px auto 40px auto;
+
+    max-width:1000px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+    border-top:6px solid #2c5b86;
+
 }
 
 .game-container{
@@ -270,6 +280,24 @@ iframe {
     margin-bottom:10px;
 }
 
+.game h3{
+
+    color:#2c5b86;
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+
+    text-align:center;
+
+}
+
+.game p{
+
+    text-align:center;
+
+}
+
 /* Buttons */
 
 button {
@@ -283,6 +311,36 @@ button {
 
 button:hover {
     background: #324b60;
+}
+
+.game button{
+
+    background:#2c5b86;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.game button:hover{
+
+    background:#163a57;
+
+    transform:translateY(-2px);
+
 }
 
 /* Progress */
@@ -655,6 +713,16 @@ blockquote {
     font-weight:600;
 
 }
+
+    .status-panel{
+
+    background:#f7f9fc;
+
+    border:2px solid #d7e3f1;
+
+    border-radius:12px;
+
+}
     
 /* CH4-game */
 #scenarioCard{
@@ -671,6 +739,16 @@ blockquote {
 
 }
 
+    #scenarioCard{
+
+    background:#f7f9fc;
+
+    border:2px solid #d7e3f1;
+
+    border-radius:12px;
+
+}
+    
 .scenario-buttons{
 
     display:flex;
@@ -823,20 +901,18 @@ blockquote {
 }
 
 /*Ch5 game*/
-    #feedbackScenario{
+   #feedbackScenario{
 
-    background:white;
+    background:#f7f9fc;
+
+    border:2px solid #d7e3f1;
+
+    border-radius:12px;
 
     padding:20px;
 
-    border-radius:10px;
-
-    border:1px solid #d8dde3;
-
-    margin-bottom:20px;
-
 }
-
+    
 #feedbackResult{
 
     margin-top:15px;
