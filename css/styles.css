@@ -7,7 +7,9 @@
     padding:20px 30px;
 
     margin-bottom:20px;
-
+    
+    margin-top: 4px;
+    
     box-shadow:
         0 4px 12px rgba(0,0,0,0.08);
 
@@ -23,6 +25,8 @@
 
     margin:25px auto;
 
+    margin-top:4px;
+    
     box-shadow:
         0 4px 12px rgba(0,0,0,0.08);
 
