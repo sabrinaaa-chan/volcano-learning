@@ -68,7 +68,7 @@ section {
 
     border-radius:20px;
 
-    padding:20px 30px;
+    padding:20px 25px;
 
     text-align:center;
 
@@ -80,11 +80,13 @@ section {
 
 .hero-container h2{
 
-    font-size:2.8rem;
+    max-width:700px;
+
+    margin:0 auto 15px auto;
+
+    font-size:2.6rem;
 
     line-height:1.15;
-
-    margin-bottom:12px;
 
     color:#243447;
 
@@ -92,13 +94,13 @@ section {
 
 .hero-text{
 
-    max-width:580px;
+    max-width:520px;
 
-    margin:0 auto 15px auto;
+    margin:0 auto 20px auto;
 
-    font-size:1.15rem;
+    font-size:1.05rem;
 
-    line-height:1.5;
+    line-height:1.55;
 
     color:#444;
 
@@ -152,11 +154,13 @@ section {
 
     justify-content:center;
 
-    gap:12px;
+    gap:10px;
 
     flex-wrap:wrap;
 
-    margin:15px 0 20px 0;
+    max-width:650px;
+
+    margin:15px auto 20px auto;
 
 }
 
