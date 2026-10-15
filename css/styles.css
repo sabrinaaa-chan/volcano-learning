@@ -426,7 +426,7 @@ iframe {
 
     border-radius:18px;
 
-    padding:20px 25px;
+    padding:18px 24px;
 
     margin:60px auto 40px auto;
 
@@ -468,28 +468,14 @@ iframe {
 
     font-size:1.8rem;
 
-    margin-bottom:8px;
-
-    text-align:center;
-
-}
-
-.game h3{
-
-    color:#2c5b86;
-
-    font-size:1.6rem;
-
-    font-weight:700;
+    margin-bottom:4px;
 
     text-align:left;
-
-    margin-bottom:10px;
 
 }
 
 .game {
-
+    
     text-align:left;
 
 }
@@ -510,6 +496,16 @@ iframe {
     line-height:1.6;
 
     margin-bottom:20px;
+
+}
+
+.game h4{
+
+    font-size:1.1rem;
+
+    color:#243447;
+
+    margin-bottom:10px;
 
 }
 
