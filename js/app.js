@@ -897,3 +897,188 @@ function restartScenarioGame(){
     loadScenario();
 
 }
+/* ==========================
+   CHAPTER 5
+   FEEDBACK LOOP CHALLENGE
+========================== */
+
+const feedbackScenarios = [
+
+{
+title:"Scenario 1",
+type:"positive",
+description:
+"Magma rises, gas expands, pressure increases and fractures allow more magma to rise."
+},
+
+{
+title:"Scenario 2",
+type:"negative",
+description:
+"Pressure increases, gas escapes, pressure decreases and activity stabilizes."
+},
+
+{
+title:"Scenario 3",
+type:"positive",
+description:
+"Earthquakes create fractures that make magma movement easier, increasing unrest."
+},
+
+{
+title:"Scenario 4",
+type:"negative",
+description:
+"Gas release lowers pressure and reduces earthquake activity."
+}
+
+];
+
+let feedbackIndex = 0;
+let feedbackScore = 0;
+
+function loadFeedbackScenario(){
+
+    const scenario =
+        feedbackScenarios[feedbackIndex];
+
+    document.getElementById(
+        "feedbackTitle"
+    ).innerText =
+        scenario.title;
+
+    document.getElementById(
+        "feedbackDescription"
+    ).innerText =
+        scenario.description;
+
+}
+
+function checkFeedbackLoop(answer){
+
+    const scenario =
+        feedbackScenarios[feedbackIndex];
+
+    const result =
+        document.getElementById(
+            "feedbackResult"
+        );
+
+    if(answer === scenario.type){
+
+        feedbackScore++;
+
+        document.getElementById(
+            "feedbackScore"
+        ).innerText =
+            feedbackScore;
+
+        result.innerHTML = `
+            <div class="result-success">
+                ✅ Correct
+            </div>
+        `;
+
+    }else{
+
+        result.innerHTML = `
+            <div class="result-warning">
+                ❌ Incorrect
+            </div>
+        `;
+    }
+
+    setTimeout(()=>{
+
+        feedbackIndex++;
+
+        if(
+            feedbackIndex <
+            feedbackScenarios.length
+        ){
+
+            loadFeedbackScenario();
+
+            result.innerHTML = "";
+
+        }
+        else{
+
+            finishFeedbackGame();
+
+        }
+
+    },1500);
+
+}
+
+function finishFeedbackGame(){
+
+    document.getElementById(
+        "feedbackScenario"
+    ).innerHTML = `
+
+        <h3>
+            🎉 Feedback Loop Challenge Complete
+        </h3>
+
+        <p>
+            Final Score:
+            <strong>
+                ${feedbackScore}/4
+            </strong>
+        </p>
+
+        <button onclick="restartFeedbackGame()">
+            🔄 Play Again
+        </button>
+
+    `;
+
+}
+
+function restartFeedbackGame(){
+
+    feedbackIndex = 0;
+    feedbackScore = 0;
+
+    document.getElementById(
+        "feedbackScore"
+    ).innerText = "0";
+
+    document.getElementById(
+        "feedbackScenario"
+    ).innerHTML = `
+
+        <h4 id="feedbackTitle">
+            Scenario 1
+        </h4>
+
+        <p id="feedbackDescription"></p>
+
+    `;
+
+    document.getElementById(
+        "feedbackResult"
+    ).innerHTML = "";
+
+    loadFeedbackScenario();
+
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        if(
+            document.getElementById(
+                "feedbackScenario"
+            )
+        ){
+
+            loadFeedbackScenario();
+
+        }
+
+    }
+);
