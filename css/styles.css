@@ -244,6 +244,12 @@ iframe {
 
 .game{
 
+    text-align:center;
+
+}
+
+.game-container{
+
     background:#ffffff;
 
     border-radius:18px;
@@ -259,7 +265,6 @@ iframe {
     border-top:6px solid #2c5b86;
 
 }
-
 .game-container{
     background:#ffffff;
     border-radius:18px;
@@ -531,11 +536,13 @@ blockquote {
     
 .budget-panel{
 
-    background:#eef6f7;
+    background:#f7f9fc;
 
-    padding:15px;
+    border:2px solid #d7e3f1;
 
-    border-radius:8px;
+    border-radius:12px;
+
+    padding:20px;
 
     margin-bottom:20px;
 
@@ -562,11 +569,13 @@ blockquote {
 
 .selected-panel{
 
-    background:#f7f9fb;
+   background:#f7f9fc;
 
-    padding:15px;
+    border:2px solid #d7e3f1;
 
-    border-radius:8px;
+    border-radius:12px;
+
+    padding:20px;
 
     margin-bottom:20px;
 
@@ -640,13 +649,16 @@ blockquote {
 .control-panel,
 .status-panel{
 
-    background:#ffffff;
+    background:#f7f9fc;
+
+    border:2px solid #d7e3f1;
+
+    border-radius:12px;
 
     padding:20px;
 
-    border-radius:10px;
+    margin-bottom:20px;
 
-    border:1px solid #d8dde3;
 }
 
 .control-panel label{
@@ -727,13 +739,13 @@ blockquote {
 /* CH4-game */
 #scenarioCard{
 
-    background:white;
+    background:#f7f9fc;
+
+    border:2px solid #d7e3f1;
+
+    border-radius:12px;
 
     padding:20px;
-
-    border-radius:10px;
-
-    border:1px solid #d8dde3;
 
     margin-bottom:20px;
 
@@ -910,6 +922,8 @@ blockquote {
     border-radius:12px;
 
     padding:20px;
+
+    margin-bottom:20px;
 
 }
     
