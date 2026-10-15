@@ -508,6 +508,9 @@ button:hover {
     transform:translateY(-2px);
 
 }
+.checkanswer{
+    margin-top:2;
+}
 
 /* Progress */
 
