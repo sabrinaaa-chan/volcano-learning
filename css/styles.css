@@ -399,26 +399,6 @@ iframe {
 
 /* Game Area */
 
-.game{
-
-    background:#ffffff;
-
-    border-radius:18px;
-
-    padding:5px 25px 20px 25px;
-
-    margin:10px auto 20px auto;
-
-    max-width:600px;
-
-    width:60%;
-
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-
-    border-top:6px solid #2c5b86;
-
-}
-
 .game-container{
 
     background:#ffffff;
@@ -450,12 +430,6 @@ iframe {
     text-align:left;
 
     margin:0 0 6px 0;
-
-}
-
-.game {
-    
-    text-align:left;
 
 }
 
@@ -1198,55 +1172,5 @@ blockquote {
     max-width:650px;
 
     margin:20px auto;
-
-}
-
-/* =====================================
-   UNIFIED GAME DESIGN
-===================================== */
-
-.game{
-
-    background:#ffffff;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    margin:50px auto;
-
-    max-width:850px;
-
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-
-    border-top:6px solid #2c5b86;
-
-}
-
-.game-header{
-
-    text-align:center;
-
-    margin-bottom:25px;
-
-}
-
-.game-header h3{
-
-    color:#2c5b86;
-
-    font-size:2rem;
-
-    margin-bottom:10px;
-
-}
-
-.game-header p{
-
-    max-width:650px;
-
-    margin:auto;
-
-    color:#555;
 
 }
