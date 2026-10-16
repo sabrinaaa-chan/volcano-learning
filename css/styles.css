@@ -314,6 +314,26 @@ margin-bottom: 20px;
 
 }
 
+.figure-container{
+
+    width:40%;
+
+    max-width:450px;
+
+    margin:20px auto;
+
+}
+
+.figure-container img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:12px;
+
+}
+
 .image-caption{
 
     width:100%;
