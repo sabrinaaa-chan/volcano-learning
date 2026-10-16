@@ -348,15 +348,6 @@ margin-bottom: 20px;
 
 }
 
-.image-caption::before{
-
-    content:"Figure ";
-
-    font-weight:bold;
-
-    color:#444;
-
-}
 
 /* YouTube */
 
