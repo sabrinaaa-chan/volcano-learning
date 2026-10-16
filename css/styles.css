@@ -333,7 +333,54 @@ margin-bottom: 20px;
     border-radius:12px;
 
 }
+.diagram-card{
 
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin:25px auto;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+}
+
+.diagram-card img{
+
+    width:100%;
+
+    max-width:800px;
+
+    display:block;
+
+    margin:0 auto 20px auto;
+
+}
+
+.diagram-content{
+
+    max-width:800px;
+
+    margin:auto;
+
+}
+
+.diagram-content h3{
+
+    color:#2c5b86;
+
+    margin-top:0;
+
+}
+
+.diagram-content ul{
+
+    margin-top:10px;
+
+}
 .image-caption{
 
     margin-top:6px;
