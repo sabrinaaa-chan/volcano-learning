@@ -320,20 +320,25 @@ margin-bottom: 20px;
 
     max-width:450px;
 
-    margin:0 auto 25px auto;
+    margin:-5px auto 20px auto;
 
-    text-align:center;
+    background:#f7f9fc;
+
+    border-left:4px solid #2c5b86;
+
+    border-radius:0 8px 8px 0;
+
+    padding:8px 12px;
 
     font-size:0.9rem;
-
-    line-height:1.4;
 
     color:#666;
 
     font-style:italic;
 
-}
+    text-align:left;
 
+}
 /* YouTube */
 
 iframe {
