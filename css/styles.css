@@ -107,12 +107,12 @@ section {
 .hero-container{
     background:#ffffff;
     border-radius:18px;
-    padding:25px;
+    padding:10px;
 
     /* change this */
-    max-width:1000px;
-    width:98%;
-    margin-bottom: 80px;
+    max-width:900px;
+    width:100%;
+    margin-bottom:10px;
     border-top:5px solid #2c5b86;
     box-shadow:0 6px 15px rgba(0,0,0,0.08);
 
@@ -237,11 +237,11 @@ section {
 
     .hero-container{
 
-        width:95%;
+        width:100%;
 
         max-width:none;
 
-        padding:20px;
+        padding:10px;
 
     }
 
@@ -476,7 +476,7 @@ iframe {
 .concept-box {
     background: #eef6f7;
     border-left: 5px solid #4A908C;
-    padding: 20px;
+    padding: 10px;
     margin: 10px 0;
     margin-top:6;
     border-radius: 8px;
@@ -484,6 +484,7 @@ iframe {
 
 .concept-box h3{
     margin:0 0 10px 0;
+    font-size: 1.8rem;
 }
 
 .concept-box ul{
@@ -493,6 +494,7 @@ iframe {
 
 .concept-box li{
     margin:6px 0;
+    font-size: 1rem;
     line-height:1.4;
 }
 
