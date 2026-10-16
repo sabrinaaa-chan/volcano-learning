@@ -75,7 +75,7 @@ section {
     max-width: 1000px;
     width: 98%;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 10px;
     border-bottom: 1px solid #ccc;
 }
 
@@ -343,7 +343,7 @@ margin-bottom: 20px;
 
     border-radius:18px;
 
-    padding:25px;
+    padding:10px;
 
     margin:25px auto;
 
@@ -520,7 +520,7 @@ iframe {
 
     border-radius:18px;
 
-    padding:25px;
+    padding:15px;
 
     margin:25px auto;
 
