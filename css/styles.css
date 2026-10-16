@@ -88,7 +88,7 @@ section {
     display:flex;
 
     justify-content:center;
-
+    max-width:800px;
     padding:30px 20px;
     max-width:none;
 
@@ -103,11 +103,7 @@ section {
     margin:25px auto;
     box-sizing:border-box;
     
-    width:100%;
-
     max-width:800px;
-
-    display:block;
 
     margin:0 auto 20px auto;
     
