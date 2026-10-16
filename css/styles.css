@@ -75,6 +75,7 @@ section {
     max-width: 1000px;
     width: 98%;
     margin: auto;
+    margin-top: 40px;
     border-bottom: 1px solid #ccc;
 }
 
