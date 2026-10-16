@@ -103,8 +103,8 @@ section {
     margin:25px auto;
 
     width:100%;
-
-    max-width:800px;
+    max-width:none;
+    box-sizing:border-box;
     
     box-shadow:0 6px 15px rgba(0,0,0,0.08);
 
@@ -522,7 +522,7 @@ iframe {
 
     margin:25px auto;
 
-    width:70%;
+    width:100%;
 
     max-width:800px;
 
