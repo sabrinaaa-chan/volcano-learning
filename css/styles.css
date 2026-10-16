@@ -345,15 +345,18 @@ margin-bottom: 20px;
 
     border-radius:18px;
 
-    padding:10px;
+    padding:25px;
 
     margin:25px auto;
+
+    width:70%;
+
+    max-width:800px;
 
     box-shadow:
         0 4px 12px rgba(0,0,0,0.08);
 
 }
-
 .diagram-card img{
 
     width:100%;
