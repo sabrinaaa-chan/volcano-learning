@@ -482,32 +482,21 @@ iframe {
 
 .chapter-summary{
 
-    background:linear-gradient(
-        135deg,
-        #f7fbff,
-        #eef6f7
-    );
-
-    border-left:6px solid #2c5b86;
-
-    border-radius:16px;
-
-    padding:20px 25px;
-
-    margin:25px 0;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.05);
-
+   background: linear-gradient(135deg,#f5f9fc,#edf4f8);
+    border-left: 8px solid #2c5b86;
+    border-radius: 18px;
+    padding: 25px 30px;
+    font-size: 1rem;
+    color: #333;
 }
 
 .chapter-summary h3{
 
-    color:#2c5b86;
-
-    margin-top:0;
-
-    font-size:1.5rem;
+    color: #2c5b86;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
 
 }
 
