@@ -316,23 +316,19 @@ margin-bottom: 20px;
 
 .image-caption{
 
-    margin:4px auto 20px auto;
+    width:100%;
 
-    padding:8px 12px;
+    margin-top:4px;
 
-    background:#f7f9fc;
-
-    border-left:4px solid #2c5b86;
-
-    border-radius:0 8px 8px 0;
-
-    font-size:0.9rem;
+    font-size:0.85rem;
 
     color:#666;
 
-    font-style:italic;
+    line-height:1.4;
 
     text-align:left;
+
+    font-style:italic;
 
 }
 
