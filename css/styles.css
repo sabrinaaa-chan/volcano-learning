@@ -95,24 +95,16 @@ section {
 }
 
 .hero-container{
-
     background:#ffffff;
-
     border-radius:18px;
     padding:25px;
-    margin:25px auto;
-    box-sizing:border-box;
-    
-    max-width:800px;
 
-    margin:0 auto 20px auto;
-    
-    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+    /* change this */
+    max-width:1000px;
+    width:98%;
 
     border-top:5px solid #2c5b86;
-
-    text-align:center;
-
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
 }
 
 .hero-container h2{
