@@ -314,6 +314,26 @@ margin-bottom: 20px;
 
 }
 
+.image-caption{
+
+    width:40%;
+
+    max-width:450px;
+
+    margin:0 auto 25px auto;
+
+    text-align:center;
+
+    font-size:0.9rem;
+
+    line-height:1.4;
+
+    color:#666;
+
+    font-style:italic;
+
+}
+
 /* YouTube */
 
 iframe {
