@@ -90,6 +90,7 @@ section {
     justify-content:center;
 
     padding:30px 20px;
+    max-width:none;
 
 }
 
@@ -98,15 +99,8 @@ section {
     background:#ffffff;
 
     border-radius:18px;
-
     padding:25px;
-
     margin:25px auto;
-
-    width:100%;
-    
-    max-width:800px;
-    
     box-sizing:border-box;
     
     box-shadow:0 6px 15px rgba(0,0,0,0.08);
