@@ -336,19 +336,25 @@ margin-bottom: 20px;
 
 .image-caption{
 
-    width:100%;
+    margin-top:6px;
 
-    margin-top:0px;
-
-    font-size:0.85rem;
+    font-size:0.8rem;
 
     color:#666;
 
-    line-height:1.4;
+    line-height:1.35;
 
     text-align:left;
 
-    font-style:italic;
+}
+
+.image-caption::before{
+
+    content:"Figure ";
+
+    font-weight:bold;
+
+    color:#444;
 
 }
 
