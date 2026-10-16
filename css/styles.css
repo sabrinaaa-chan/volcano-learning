@@ -336,9 +336,11 @@ margin-bottom: 20px;
 
 .image-caption{
 
-    width:100%;
+    width:40%;
 
-    margin-top:4px;
+    max-width:450px;
+
+    margin-top:0px;
 
     font-size:0.85rem;
 
