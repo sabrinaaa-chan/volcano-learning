@@ -407,7 +407,6 @@ margin-bottom: 20px;
 }
 
 
-
 /* YouTube */
 
 iframe {
@@ -474,9 +473,13 @@ iframe {
 
 /* Concept Box */
 
-.concept-box{
-    padding:20px 30px;
-    margin:20px 0;
+.concept-box {
+    background: #eef6f7;
+    border-left: 5px solid #4A908C;
+    padding: 20px;
+    margin: 10px 0;
+    margin-top:6;
+    border-radius: 8px;
 }
 
 .concept-box h3{
