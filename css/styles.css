@@ -344,23 +344,10 @@ margin-bottom: 20px;
 
     margin:25px auto;
 
-    width:70%;
-
-    max-width:800px;
-
     box-shadow:
         0 4px 12px rgba(0,0,0,0.08);
 
 }
-
-.diagram-cardh2{
-    margin-top:3px;
-}
-
-.image-caption{
-    margin-bottom:3px;
-}
-
 
 .diagram-card img{
 
@@ -395,6 +382,7 @@ margin-bottom: 20px;
     margin-top:10px;
 
 }
+
 .image-caption{
 
     margin-top:6px;
