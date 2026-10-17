@@ -111,8 +111,8 @@ section {
 
     /* change this */
     max-width:1000px;
-    width:100%;
-    margin-bottom:10px;
+    width:98%;
+    margin-bottom:0px;
     border-top:5px solid #2c5b86;
     box-shadow:0 6px 15px rgba(0,0,0,0.08);
 
@@ -121,7 +121,7 @@ section {
 
 .hero-container h2{
 
-    max-width:700px;
+    max-width:900px;
 
     margin:0 auto 10px auto;
 
@@ -139,7 +139,7 @@ section {
 
     width:100%;
 
-    max-width:700px;
+    max-width:900px;
 
     margin:0 auto 20px auto;
 
@@ -358,7 +358,7 @@ margin-bottom: 20px;
 
     padding:10px;
 
-    margin:25px auto;
+    margin:15px auto;
 
     box-shadow:
         0 4px 12px rgba(0,0,0,0.08);
