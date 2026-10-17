@@ -98,7 +98,7 @@ section {
 
     justify-content:center;
     max-width:1000px;
-    width: 95%;
+    width: 90%;
     padding:15px 15px;
     max-width:none;
     margin:10px auto 25px auto;
@@ -112,7 +112,7 @@ section {
 
     /* change this */
     max-width:1000px;
-    width:98%;
+    width:90%;
     margin-bottom:0px;
     border-top:5px solid #2c5b86;
     box-shadow:0 6px 15px rgba(0,0,0,0.08);
@@ -360,7 +360,8 @@ margin-bottom: 20px;
     padding:10px;
 
     margin:15px auto;
-
+    margin-top:10px;
+    
     box-shadow:
         0 4px 12px rgba(0,0,0,0.08);
 
