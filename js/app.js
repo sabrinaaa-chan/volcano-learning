@@ -681,10 +681,19 @@ function loadScenario(){
             "scenarioData"
         );
 
-    if(!title || !data){
+    if(!title){
 
         console.error(
-            "Scenario elements not found"
+            "scenarioTitle not found"
+        );
+
+        return;
+    }
+
+    if(!data){
+
+        console.error(
+            "scenarioData not found"
         );
 
         return;
@@ -693,14 +702,23 @@ function loadScenario(){
     const s =
         scenarios[currentScenario];
 
-    title.innerText =
+    title.textContent =
         s.title;
 
     data.innerHTML =
-        s.data.map(
-            item =>
-            `<li>${item}</li>`
-        ).join("");
+        "";
+
+    s.data.forEach(item => {
+
+        const li =
+            document.createElement("li");
+
+        li.textContent =
+            item;
+
+        data.appendChild(li);
+
+    });
 
 }
 
@@ -897,15 +915,15 @@ function restartScenarioGame(){
     loadScenario();
 
 }
-window.addEventListener("load", function () {
 
-    if (
-        document.getElementById("scenarioCard")
-    ) {
-        loadScenario();
-    }
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("Loading Chapter 4");
+
+    loadScenario();
 
 });
+
 /* ==========================
    CHAPTER 5
    FEEDBACK LOOP CHALLENGE
