@@ -897,6 +897,15 @@ function restartScenarioGame(){
     loadScenario();
 
 }
+window.addEventListener("load", function () {
+
+    if (
+        document.getElementById("scenarioCard")
+    ) {
+        loadScenario();
+    }
+
+});
 /* ==========================
    CHAPTER 5
    FEEDBACK LOOP CHALLENGE
