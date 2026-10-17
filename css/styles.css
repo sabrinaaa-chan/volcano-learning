@@ -98,10 +98,11 @@ section {
 
     justify-content:center;
     max-width:1000px;
-    width: 98%;
+    width: 95%;
     padding:15px 15px;
     max-width:none;
     margin:10px auto 25px auto;
+    margin-bottom:0px;
 }
 
 .hero-container{
@@ -724,7 +725,7 @@ blockquote {
     }
 
     .chapter {
-        margin-top: 80px;
+        margin-top: 50px;
         padding: 10px;
     }
     
