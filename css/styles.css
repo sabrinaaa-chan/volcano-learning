@@ -491,7 +491,8 @@ iframe {
     border-left: 5px solid #4A908C;
     padding: 10px;
     margin: 10px 0;
-    margin-top:6;
+    margin-top:6px;
+    margin-bottom:5px;
     border-radius: 8px;
 }
 
@@ -726,7 +727,7 @@ blockquote {
     }
 
     .chapter {
-        margin-top: 50px;
+        margin-top: 30px;
         padding: 10px;
     }
     
